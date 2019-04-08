@@ -3,11 +3,8 @@
 *.class
 *.log
 ### Java template
-# Compiled class file
-*.class
 
-# Log file
-*.log
+
 
 # BlueJ files
 *.ctxt
@@ -172,3 +169,29 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+.idea/misc.xml
+.idea/modules.xml
+.idea/modules/
+.idea/sbt.xml
+.idea/scala_compiler.xml
+.idea/vcs.xml
+project/project/target/config-classes/$d8a0cdbc9f7c60eb5e11.cache
+project/target/config-classes/$176cc4faec7167d1e29f.cache
+project/target/config-classes/$242b8905b3b79a78fbee.cache
+project/target/config-classes/$377e89e17f804137f5a4.cache
+project/target/config-classes/$4463666ba1be2e88d53d.cache
+project/target/config-classes/$5508fc2c88da697f62f0.cache
+project/target/config-classes/$7873ee3640d9d87cd382.cache
+project/target/config-classes/$9df5c33a9bde8f3dc551.cache
+project/target/config-classes/$a414cb35aa949074b2ca.cache
+project/target/config-classes/$b59db93d0ee65d64d84d.cache
+project/target/config-classes/$f693c440b358360a23ee.cache
+project/target/scala-2.12/
+project/target/streams/
+src/test/
+target/.history
+target/scala-2.12/classes/META-INF/
+target/scala-2.12/classes/example_application.conf
+target/scala-2.12/classes/reference.conf
+target/scala-2.12/resolution-cache/
+target/streams/
