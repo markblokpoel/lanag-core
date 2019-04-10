@@ -195,3 +195,4 @@ target/scala-2.12/classes/example_application.conf
 target/scala-2.12/classes/reference.conf
 target/scala-2.12/resolution-cache/
 target/streams/
+/target/

@@ -1,11 +1,10 @@
 val username = "markblokpoel"
-val repo = "lanag-core"
+val repo = "com.markblokpoel.lanag-core"
 
 lazy val commonSettings = Seq(
   name := repo,
-  version := "0.2",
   scalaVersion := "2.12.8",
-  organization := s"com.github.$username",
+  organization := s"com.markblokpoel",
   description := "This is an implementation of the core API for the Lanag agent-based simulation framework.",
   crossScalaVersions := Seq("2.12.8"),
   crossVersion := CrossVersion.binary,
@@ -18,7 +17,7 @@ lazy val commonSettings = Seq(
   // Compile options
   updateImpactOpenBrowser := false,
   compile in Compile := (compile in Compile).dependsOn(formatAll).value,
-  mainClass in assembly := Some("lanag.lanag.coreg.util.DefaultMain"),
+  mainClass in assembly := Some("com.markblokpoel.lanag.com.markblokpoel.lanag.coreg.util.DefaultMain"),
   test in Test := (test in Test).dependsOn(checkFormat).value,
   formatAll := {
     (scalafmt in Compile).value
@@ -79,7 +78,7 @@ lazy val releaseSettings = Seq(
     setReleaseVersion,
     //commitReleaseVersion,
     tagRelease,
-    releaseStepCommand("publishSigned"),
+    releaseStepCommandAndRemaining("+publishSigned"),
     setNextVersion,
     //commitNextVersion,
     releaseStepCommand("sonatypeReleaseAll"),
@@ -105,6 +104,7 @@ lazy val releaseSettings = Seq(
   publishMavenStyle := true,
   publishArtifact in Test := false,
   publishTo := Some(if (isSnapshot.value) Opts.resolver.sonatypeSnapshots else Opts.resolver.sonatypeStaging),
+  sonatypeProfileName := "markblokpoel",
 //  credentials ++= (for {
 //    username <- sys.env.get("SONATYPE_USERNAME")
 //    password <- sys.env.get("SONATYPE_PASSWORD")

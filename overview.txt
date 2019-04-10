@@ -3,7 +3,7 @@
 
 ==Running simulation with spark-submit==
 
-<code>spark-submit --class lanag.projects.ambiguityhelps.experiments.RSA1ShotConsistent --master local[4] Lanag2-assembly-0.2.jar</code>
+<code>spark-submit --class com.markblokpoel.lanag.projects.ambiguityhelps.experiments.RSA1ShotConsistent --master local[4] Lanag2-assembly-0.2.jar</code>
 
 ==Running simulation from Intellij==
 Intellij will ignore <code>% Provided</code> library dependencies by default. However, this means it cannot find the
