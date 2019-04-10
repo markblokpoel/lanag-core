@@ -10,3 +10,9 @@ Intellij will ignore <code>% Provided</code> library dependencies by default. Ho
 Spark libraries, since these have to be tagged as such, because these are assumed to be supplied by the Spark
 server. To run a simulation from within Intellij, you must edit the run configuration and under "Configuration"
 check the option "Include dependencies with Provided scope".
+
+
+==SBT stuff==
+
+===Generate scaladoc===
+<code>unidoc</code>

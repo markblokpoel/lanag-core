@@ -1,6 +1,6 @@
 package lanag.rsa
 
-import lanag.core.util.RNG
+import lanag.util.RNG
 
 /** A lexicon as defined in the Rational Speech Act theory (Frank & Goodman, 2012). This implementation
   * supports both binary and graded lexicons. It also implements functions that constitute the Rational
@@ -313,13 +313,13 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     val mapping2: Array[Array[Double]] = new Array[Array[Double]](mapping.length)
     for (i <- mapping.indices) {
       mapping2(i) = new Array[Double](mapping(i).length)
-      val nrTrues = mapping(i).foldLeft(0){(acc,i) => if(i == 0) acc + 1 else acc}
+      val nrTrues = mapping(i).foldLeft(0){(acc,i) => if(i >= threshold) acc + 1 else acc}
       var nrSubtractionsNeeded = Math.max(0,Math.min(nrTrues, (removalRate * nrTrues).toInt))
       for (j <- mapping(i).indices) {
         mapping2(i)(j) = mapping(i)(j)
         var nrSubtractionsLeft = 0
-        for(ind <- mapping(i).indices if ind>=j) if(mapping(i)(ind) == 1.0) nrSubtractionsLeft += 1
-        if(mapping(i)(j) == 1.0) {
+        for(ind <- mapping(i).indices if ind>=j) if(mapping(i)(ind) >= threshold) nrSubtractionsLeft += 1
+        if(mapping(i)(j) >= threshold) {
           if(RNG.nextBoolean(nrSubtractionsNeeded / nrSubtractionsLeft.toDouble)) {
             mapping2(i)(j) = 1.0
             nrSubtractionsNeeded -= 1

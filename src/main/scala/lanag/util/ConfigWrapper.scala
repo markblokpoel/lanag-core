@@ -1,4 +1,4 @@
-package lanag.core.util
+package lanag.util
 
 import com.typesafe.config.{Config, ConfigException}
 

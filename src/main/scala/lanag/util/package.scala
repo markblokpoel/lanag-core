@@ -1,10 +1,10 @@
-package lanag.core
+package lanag
 
 /** Provides classes and objects for dealing with the simulation infrastructure.
   *
   * ==Overview==
   * ===Spark simulations===
-  * Use [[lanag.core.util.LocalSparkSimulation]] to create an instance of Spark
+  * Use [[lanag.util.SparkSimulation]] to create an instance of Spark
   * running locally on your machine:
   * {{{
   *   import lanag.lanag.coreg.util.LocalSparkSimulation
@@ -14,8 +14,8 @@ package lanag.core
   *   val rdd = LocalSparkSimulation.parallelize(sequenceToBeParallelized)
   * }}}
   *
-  * You can now RDD functions like [[org.apache.spark.rdd.RDD.flatMap()]] and
-  * [[org.apache.spark.rdd.RDD.map()]] to apply transformations to the sequence.
+  * You can now RDD functions like <code>org.apache.spark.rdd.RDD.flatMap()</code> and
+  * <code>org.apache.spark.rdd.RDD.map()</code> to apply transformations to the sequence.
   * {{{
   *   rdd.map(a => a +1)
   * }}}
@@ -25,10 +25,10 @@ package lanag.core
   * [[https://spark.apache.org/docs/latest/quick-start.html]].
   *
   * ===Global number generators===
-  * The object [[lanag.core.util.InteractionIdentifier]] is used in [[lanag.core.Interaction]]
+  * The object [[lanag.util.InteractionIdentifier]] is used in [[lanag.core.Interaction]]
   * to identify pairs of agents.
   *
-  * The object [[lanag.core.util.RNG]] specifies a global random number generator. Implementations
+  * The object [[lanag.util.RNG]] specifies a global random number generator. Implementations
   * of [[lanag.core.Interaction]] that use this object exclusive will be repeatable for specific RNG seeds.
   *
   * @author Mark Blokpoel

@@ -1,6 +1,6 @@
 package lanag.core
 
-import lanag.core.util.InteractionIdentifier
+import lanag.util.InteractionIdentifier
 
 /** Defines agent interactions.
   *
@@ -16,7 +16,7 @@ import lanag.core.util.InteractionIdentifier
   * @author Mark Blokpoel
   */
 @SerialVersionUID(100L)
-abstract class Interaction[I <: Intention, S <: Signal, A <: Agent[I, S]](agent1: A, agent2: A, originData: Data = NoData()) extends Serializable {
+abstract class Interaction[I <: Intention, S <: Signal, A <: Agent[I, S]](val agent1: A, val agent2: A, val originData: Data = NoData()) extends Serializable {
   /** The unique ID number of this pair / interaction. */
   val pairId: Long = InteractionIdentifier.nextId
 

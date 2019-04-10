@@ -1,4 +1,4 @@
-package lanag.core.util
+package lanag.util
 
 /** A global Random Number Generator.
   *
@@ -21,7 +21,9 @@ object RNG {
   private val r = scala.util.Random
 
   /** Sets the global random number generator's seed number. */
-  def setSeed(seed: Long) { r.setSeed(seed) }
+  def setSeed(seed: Long): Unit = {
+    r.setSeed(seed)
+  }
 
   /** Returns a random probability. */
   def nextProbability : Double = { r.nextDouble() }

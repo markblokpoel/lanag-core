@@ -1,6 +1,6 @@
 package lanag.rsa
 
-import lanag.core.util.RNG
+import lanag.util.RNG
 
 import scala.math.min
 

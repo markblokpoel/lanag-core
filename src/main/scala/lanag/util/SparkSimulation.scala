@@ -1,4 +1,4 @@
-package lanag.core.util
+package lanag.util
 
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
@@ -28,11 +28,11 @@ case class SparkSimulation(local: Boolean = false, cores: Int = 4) {
   /** Parallelizes a sequence of type T.
     *
     * Use this to parallelize simulations and run them in a Spark session. All transformation
-    * applied to the resulting [[org.apache.spark.rdd.RDD]] are lazily executed in parallel.
+    * applied to the resulting <code>org.apache.spark.rdd.RDD</code> are lazily executed in parallel.
     *
     * @param seq Sequence of type T to be parallelized.
     * @tparam T Optional type parameter.
-    * @return A resilient distributed data structure [[org.apache.spark.rdd.RDD]].
+    * @return A resilient distributed data structure <code>org.apache.spark.rdd.RDD</code>.
     */
   def parallelize[T: ClassTag](seq: Seq[T]): RDD[T] = context.parallelize(seq)
 
