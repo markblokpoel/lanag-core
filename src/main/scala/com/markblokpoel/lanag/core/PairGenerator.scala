@@ -15,7 +15,10 @@ package com.markblokpoel.lanag.core
   * @author Mark Blokpoel
   */
 @SerialVersionUID(100L)
-abstract class PairGenerator[P <: Parameters, I <: Intention, S <: Signal, A <: Agent[I, S], D <: Data](sampleSize: Int) extends Serializable {
+abstract class PairGenerator[P <: Parameters, I <: Intention, S <: Signal,
+A <: Agent[I, S], D <: Data](sampleSize: Int)
+    extends Serializable {
+
   /** Generates the parameter space, specifying the full domain of parameters used to generate pairs of agents.
     *
     * @return A sequence of parameters.
@@ -53,12 +56,14 @@ abstract class PairGenerator[P <: Parameters, I <: Intention, S <: Signal, A <: 
   *
   * @author Mark Blokpoel
   */
-case class AgentPair[I <: Intention, S <: Signal, A <: Agent[I, S], D <: Data](agent1: A, agent2: A, originData: D)
+case class AgentPair[I <: Intention, S <: Signal, A <: Agent[I, S], D <: Data](
+    agent1: A,
+    agent2: A,
+    originData: D)
 
 /** Prototype type for parameters. All implementations of [[PairGenerator]] should also specify
   * a case class that implements this.
   *
   * @author Mark Blokpoel
   */
-trait Parameters {
-}
+trait Parameters {}

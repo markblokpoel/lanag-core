@@ -15,4 +15,7 @@ check the option "Include dependencies with Provided scope".
 ==SBT stuff==
 
 ===Generate scaladoc===
-<code>unidoc</code>
+<code>doc</code>
+
+===Publish scaladoc to ghpages===
+Must have setup and added gpg locally and with github.

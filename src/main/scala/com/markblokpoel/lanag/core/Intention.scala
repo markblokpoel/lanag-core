@@ -10,6 +10,7 @@ trait Intention
   * @author Mark Blokpoel
   */
 abstract class IntentionPrototype[T] extends Intention {
+
   /** Access the content. */
   val content: T
 
@@ -26,6 +27,6 @@ abstract class IntentionPrototype[T] extends Intention {
   * @author Mark Blokpoel
   */
 case class ReferentialIntention(override val content: Option[Int])
-  extends IntentionPrototype[Option[Int]] {
+    extends IntentionPrototype[Option[Int]] {
   override def isDefined: Boolean = content.isDefined
 }

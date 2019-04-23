@@ -25,7 +25,10 @@ import com.markblokpoel.lanag.util.RNG
   * @author Mark Blokpoel
   */
 @SerialVersionUID(100L)
-case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Vector[Double]) extends Serializable {
+case class Lexicon(vocabularySize: Int,
+                   contextSize: Int,
+                   protected val data: Vector[Double])
+    extends Serializable {
   require(data.length == vocabularySize * contextSize)
 
   /** Returns the relation value for signal <code>i</code> and referent <code>j</code>.
@@ -34,7 +37,8 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     * @param j Index of the referent.
     */
   def apply(i: Int, j: Int): Double = {
-    require(i >= 0 && i < vocabularySize && j >= 0 && j < contextSize, "Mat index out of bounds.")
+    require(i >= 0 && i < vocabularySize && j >= 0 && j < contextSize,
+            "Mat index out of bounds.")
     data(j + i * contextSize)
   }
 
@@ -42,8 +46,11 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     * updated to value v.
     */
   def update(i: Int, j: Int, v: Double): Lexicon = {
-    require(i >= 0 && i < vocabularySize && j >= 0 && j < contextSize, "Mat index out of bounds.")
-    new Lexicon(vocabularySize, contextSize, data.updated(j + i * contextSize, v))
+    require(i >= 0 && i < vocabularySize && j >= 0 && j < contextSize,
+            "Mat index out of bounds.")
+    new Lexicon(vocabularySize,
+                contextSize,
+                data.updated(j + i * contextSize, v))
   }
 
   /** Returns the row for signal <code>i</code>, containing all mapping values between signal
@@ -60,12 +67,13 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
   def getColumn(j: Int): Vector[Double] = {
     require(j >= 0 && j < contextSize, s"0 > col = $j > $contextSize")
 
-    def getColumn(partialData: Vector[Double]): Vector[Double] = partialData match {
-      case Vector() => Vector[Double]()
-      case _ =>
-        val (row, newPartialData) = partialData.splitAt(contextSize)
-        row(j) +: getColumn(newPartialData)
-    }
+    def getColumn(partialData: Vector[Double]): Vector[Double] =
+      partialData match {
+        case Vector() => Vector[Double]()
+        case _ =>
+          val (row, newPartialData) = partialData.splitAt(contextSize)
+          row(j) +: getColumn(newPartialData)
+      }
 
     getColumn(data)
   }
@@ -88,7 +96,8 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     * @return A vector of length <code>vocabularySize</code> with the dot product.
     */
   def dot(vector: Vector[Double]): Vector[Double] = {
-    require(vector.length == contextSize,
+    require(
+      vector.length == contextSize,
       s"Mat.dot dimensions incompatible: vector.length=${vector.length}!=ncol=$contextSize")
 
     val result = new Array[Double](vocabularySize)
@@ -106,7 +115,8 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     * @return A vector of length <code>contextSize</code> with the dot product.
     */
   def dotT(vector: Vector[Double]): Vector[Double] = {
-    require(vector.length == vocabularySize,
+    require(
+      vector.length == vocabularySize,
       s"Mat.dotT dimensions incompatible: vector.length=${vector.length}!=nrow=$contextSize")
 
     val result = new Array[Double](contextSize)
@@ -122,13 +132,16 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     for (i <- data.indices)
       colSums(colFromIndex(i)) += data(i)
 
-    def normalizeColumns(index: Int, partialData: Vector[Double]): Vector[Double] = partialData match {
-      case Vector() => Vector[Double]()
-      case _ =>
-        val normalizedValue = partialData.head / colSums(colFromIndex(index))
-        if (!normalizedValue.isNaN) normalizedValue +: normalizeColumns(index + 1, partialData.tail)
-        else 0.0 +: normalizeColumns(index + 1, partialData.tail)
-    }
+    def normalizeColumns(index: Int,
+                         partialData: Vector[Double]): Vector[Double] =
+      partialData match {
+        case Vector() => Vector[Double]()
+        case _ =>
+          val normalizedValue = partialData.head / colSums(colFromIndex(index))
+          if (!normalizedValue.isNaN)
+            normalizedValue +: normalizeColumns(index + 1, partialData.tail)
+          else 0.0 +: normalizeColumns(index + 1, partialData.tail)
+      }
 
     new Lexicon(vocabularySize, contextSize, normalizeColumns(0, data))
   }
@@ -139,13 +152,15 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     for (i <- data.indices)
       rowSums(rowFromIndex(i)) += data(i)
 
-    def normalizeRows(index: Int, partialData: Vector[Double]): Vector[Double] = partialData match {
-      case Vector() => Vector[Double]()
-      case _ =>
-        val normalizedValue = partialData.head / rowSums(rowFromIndex(index))
-        if (!normalizedValue.isNaN) normalizedValue +: normalizeRows(index + 1, partialData.tail)
-        else 0.0 +: normalizeRows(index + 1, partialData.tail)
-    }
+    def normalizeRows(index: Int, partialData: Vector[Double]): Vector[Double] =
+      partialData match {
+        case Vector() => Vector[Double]()
+        case _ =>
+          val normalizedValue = partialData.head / rowSums(rowFromIndex(index))
+          if (!normalizedValue.isNaN)
+            normalizedValue +: normalizeRows(index + 1, partialData.tail)
+          else 0.0 +: normalizeRows(index + 1, partialData.tail)
+      }
 
     new Lexicon(vocabularySize, contextSize, normalizeRows(0, data))
   }
@@ -179,7 +194,8 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     */
   def asymmetryWith(that: Lexicon, similarity: Double = 0): Double = {
     val zipped = this.data zip that.data
-    val asymmetry = zipped.map(a => Math.abs(a._1 - a._2) > similarity).count(b => b)
+    val asymmetry =
+      zipped.map(a => Math.abs(a._1 - a._2) > similarity).count(b => b)
     asymmetry / data.length.toDouble
   }
 
@@ -194,7 +210,7 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     for (i <- 0 until vocabularySize) {
       var signalAmbiguity: Int = 0
       for (j <- 0 until contextSize) {
-        if (this (i, j) >= threshold)
+        if (this(i, j) >= threshold)
           signalAmbiguity += 1
       }
       ambiguity = ambiguity + signalAmbiguity
@@ -212,10 +228,12 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     val rowSums = new Array[Double](vocabularySize)
     for (i <- 0 until vocabularySize)
       for (j <- 0 until contextSize)
-        if (this (i, j) >= threshold) rowSums(i) += 1
+        if (this(i, j) >= threshold) rowSums(i) += 1
 
     val mean = rowSums.sum / rowSums.length
-    val variance = rowSums.fold(0.0) { (acc, v) => acc + (v - mean) * (v - mean) } / rowSums.length
+    val variance = rowSums.fold(0.0) { (acc, v) =>
+      acc + (v - mean) * (v - mean)
+    } / rowSums.length
     (mean, variance)
   }
 
@@ -225,7 +243,7 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     for (i <- 0 until vocabularySize) {
       array2d(i) = new Array[Double](contextSize)
       for (j <- 0 until contextSize)
-        array2d(i)(j) = this(i,j)
+        array2d(i)(j) = this(i, j)
     }
     array2d.toVector.map(_.toVector)
   }
@@ -239,7 +257,8 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     * @return A mutated (but immutable) mapping.
     */
   def mutate(mutationRate: Double): Lexicon = {
-    val newLexiconData = this.data.map(v => if (RNG.nextBoolean(mutationRate)) Math.abs(v - 1) else v)
+    val newLexiconData = this.data.map(v =>
+      if (RNG.nextBoolean(mutationRate)) Math.abs(v - 1) else v)
     Lexicon(this.vocabularySize, this.contextSize, newLexiconData)
   }
 
@@ -252,24 +271,27 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     */
   def mixReferents(mixRate: Double): Lexicon = {
     val mutableMapping = this.to2DVector
-    val mapping2: Array[Array[Double]] = new Array[Array[Double]](mutableMapping.length)
+    val mapping2: Array[Array[Double]] =
+      new Array[Array[Double]](mutableMapping.length)
     for (i <- mutableMapping.indices) {
       var nrSwapsNeeded = (mixRate * (mutableMapping(i).length / 2)).toInt
       mapping2(i) = new Array[Double](mutableMapping(i).length)
 
-      for (j <- 0 until mutableMapping(i).length/2) {
-        val swapOptionsLeft = mutableMapping(i).length/2 - j
-        if(RNG.nextBoolean(nrSwapsNeeded.toDouble / swapOptionsLeft.toDouble)) {
-          mapping2(i)(j) = mutableMapping(i)(mutableMapping(i).length-j-1)
-          mapping2(i)(mutableMapping(i).length-j-1) = mutableMapping(i)(j)
+      for (j <- 0 until mutableMapping(i).length / 2) {
+        val swapOptionsLeft = mutableMapping(i).length / 2 - j
+        if (RNG.nextBoolean(nrSwapsNeeded.toDouble / swapOptionsLeft.toDouble)) {
+          mapping2(i)(j) = mutableMapping(i)(mutableMapping(i).length - j - 1)
+          mapping2(i)(mutableMapping(i).length - j - 1) = mutableMapping(i)(j)
           nrSwapsNeeded -= 1
         } else {
           mapping2(i)(j) = mutableMapping(i)(j)
-          mapping2(i)(mutableMapping(i).length-j-1) = mutableMapping(i)(mutableMapping(i).length-j-1)
+          mapping2(i)(mutableMapping(i).length - j - 1) =
+            mutableMapping(i)(mutableMapping(i).length - j - 1)
         }
       }
-      if(mutableMapping(i).length%2==1) {
-        mapping2(i)(mutableMapping(i).length/2)=mutableMapping(i)(mutableMapping(i).length/2)
+      if (mutableMapping(i).length % 2 == 1) {
+        mapping2(i)(mutableMapping(i).length / 2) =
+          mutableMapping(i)(mutableMapping(i).length / 2)
       }
     }
     Lexicon(mapping2)
@@ -282,17 +304,22 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     */
   def additiveBinaryMutation(additionRate: Double): Lexicon = {
     val mapping = this.to2DVector
-    val mapping2: Array[Array[Double]] = new Array[Array[Double]](mapping.length)
+    val mapping2: Array[Array[Double]] =
+      new Array[Array[Double]](mapping.length)
     for (i <- mapping.indices) {
       mapping2(i) = new Array[Double](mapping(i).length)
-      val nrFalses = mapping(i).foldLeft(0){(acc,i) => if(i == 0) acc + 1 else acc}
-      var nrAdditionsNeeded = Math.max(0,Math.min(nrFalses, (additionRate * nrFalses).toInt))
+      val nrFalses = mapping(i).foldLeft(0) { (acc, i) =>
+        if (i == 0) acc + 1 else acc
+      }
+      var nrAdditionsNeeded =
+        Math.max(0, Math.min(nrFalses, (additionRate * nrFalses).toInt))
       for (j <- mapping(i).indices) {
         mapping2(i)(j) = mapping(i)(j)
         var nrAdditionsLeft = 0
-        for(ind <- mapping(i).indices if ind>=j) if(mapping(i)(ind) == 0.0) nrAdditionsLeft += 1
-        if(mapping(i)(j) == 0.0) {
-          if(RNG.nextBoolean(nrAdditionsNeeded / nrAdditionsLeft.toDouble)) {
+        for (ind <- mapping(i).indices if ind >= j)
+          if (mapping(i)(ind) == 0.0) nrAdditionsLeft += 1
+        if (mapping(i)(j) == 0.0) {
+          if (RNG.nextBoolean(nrAdditionsNeeded / nrAdditionsLeft.toDouble)) {
             mapping2(i)(j) = 1.0
             nrAdditionsNeeded -= 1
           }
@@ -308,19 +335,26 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     * @param removalRate The ratio of 0-valued signal-referent mappings that will be converted to 1.0 (from 0 to 1).
     * @param threshold Optional parameter specifying the threshold above which relations can be removed.
     */
-  def removalBinaryMutation(removalRate: Double, threshold: Double = 1): Lexicon = {
+  def removalBinaryMutation(removalRate: Double,
+                            threshold: Double = 1): Lexicon = {
     val mapping = this.to2DVector
-    val mapping2: Array[Array[Double]] = new Array[Array[Double]](mapping.length)
+    val mapping2: Array[Array[Double]] =
+      new Array[Array[Double]](mapping.length)
     for (i <- mapping.indices) {
       mapping2(i) = new Array[Double](mapping(i).length)
-      val nrTrues = mapping(i).foldLeft(0){(acc,i) => if(i >= threshold) acc + 1 else acc}
-      var nrSubtractionsNeeded = Math.max(0,Math.min(nrTrues, (removalRate * nrTrues).toInt))
+      val nrTrues = mapping(i).foldLeft(0) { (acc, i) =>
+        if (i >= threshold) acc + 1 else acc
+      }
+      var nrSubtractionsNeeded =
+        Math.max(0, Math.min(nrTrues, (removalRate * nrTrues).toInt))
       for (j <- mapping(i).indices) {
         mapping2(i)(j) = mapping(i)(j)
         var nrSubtractionsLeft = 0
-        for(ind <- mapping(i).indices if ind>=j) if(mapping(i)(ind) >= threshold) nrSubtractionsLeft += 1
-        if(mapping(i)(j) >= threshold) {
-          if(RNG.nextBoolean(nrSubtractionsNeeded / nrSubtractionsLeft.toDouble)) {
+        for (ind <- mapping(i).indices if ind >= j)
+          if (mapping(i)(ind) >= threshold) nrSubtractionsLeft += 1
+        if (mapping(i)(j) >= threshold) {
+          if (RNG.nextBoolean(
+                nrSubtractionsNeeded / nrSubtractionsLeft.toDouble)) {
             mapping2(i)(j) = 1.0
             nrSubtractionsNeeded -= 1
           }
@@ -335,7 +369,7 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
     var out = ""
     for (i <- 0 until vocabularySize) {
       for (j <- 0 until contextSize) {
-        out += this (i, j) + "\t"
+        out += this(i, j) + "\t"
       }
       out += "\n"
     }
@@ -345,6 +379,7 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, protected val data: Ve
 
 /** Companion object to [[Lexicon]] containing alternative constructors and generation functions. */
 object Lexicon {
+
   /** Constructor for [[Lexicon]].
     *
     * @param matrix A 2-dimensional vector representation of a graded lexicon. Rows represent the
@@ -352,7 +387,8 @@ object Lexicon {
     * @return A (graded) lexicon.
     */
   def apply(matrix: Vector[Vector[Double]]): Lexicon = {
-    require(matrix.nonEmpty && matrix.forall(_.length == matrix.head.length), "Matrix is not well-formed.")
+    require(matrix.nonEmpty && matrix.forall(_.length == matrix.head.length),
+            "Matrix is not well-formed.")
     Lexicon(matrix.length, matrix.head.length, matrix.flatten)
   }
 
@@ -362,7 +398,8 @@ object Lexicon {
     *               vocabulary, columns represent the context.
     * @return A (graded) lexicon.
     */
-  def apply(matrix: Array[Array[Double]]): Lexicon = Lexicon(matrix.toVector.map(_.toVector))
+  def apply(matrix: Array[Array[Double]]): Lexicon =
+    Lexicon(matrix.toVector.map(_.toVector))
 
   /** Generates a randomized binary lexicon (i.e., each word-referent pair has <code>probability</code>
     * to be 1.0).
@@ -373,7 +410,9 @@ object Lexicon {
     * @param contextSize    The size of the context.
     * @return A randomly generated lexicon.
     */
-  def generateRandomBinaryLexicon(probability: Double, vocabularySize: Int, contextSize: Int): Lexicon = {
+  def generateRandomBinaryLexicon(probability: Double,
+                                  vocabularySize: Int,
+                                  contextSize: Int): Lexicon = {
 
     val lexicon: Vector[Double] = (for (_ <- 1 to vocabularySize * contextSize)
       yield if (RNG.nextBoolean(probability)) 1.0 else 0.0).toVector
@@ -394,8 +433,9 @@ object Lexicon {
   def generateConsistentAmbiguityMapping(ambiguity: Int,
                                          vocabularySize: Int,
                                          contextSize: Int): Lexicon = {
-    require(vocabularySize >= contextSize, "Vocabulary is smaller than the context," +
-      "cannot create consistent lexicon.")
+    require(vocabularySize >= contextSize,
+            "Vocabulary is smaller than the context," +
+              "cannot create consistent lexicon.")
 
     val lexicon: Array[Array[Double]] = new Array[Array[Double]](vocabularySize)
     val mappingsNeeded = Math.max(1, Math.min(ambiguity, contextSize))
@@ -424,7 +464,8 @@ object Lexicon {
           for (l <- j until contextSize)
             if (lexicon(i)(l) == 0) mappingsLeft += 1
 
-          if (mappingsLeft <= 0 || RNG.nextBoolean(mappingsNeededPerWord(i).toDouble / mappingsLeft.toDouble)) {
+          if (mappingsLeft <= 0 || RNG.nextBoolean(
+                mappingsNeededPerWord(i).toDouble / mappingsLeft.toDouble)) {
             lexicon(i)(j) = 1.0
             mappingsNeededPerWord(i) -= 1
           } else {

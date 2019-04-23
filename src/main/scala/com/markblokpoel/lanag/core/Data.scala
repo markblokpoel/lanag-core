@@ -5,13 +5,11 @@ package com.markblokpoel.lanag.core
   *
   * @author Mark Blokpoel
   */
-trait Data {
-}
+trait Data {}
 
 /** Use this class in your agent simulation implementation when you have no
   * data to collect.
   *
   * @author Mark Blokpoel
   */
-case class NoData() extends Data {
-}
+case class NoData() extends Data {}

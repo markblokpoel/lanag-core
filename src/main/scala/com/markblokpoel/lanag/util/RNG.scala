@@ -26,14 +26,16 @@ object RNG {
   }
 
   /** Returns a random probability. */
-  def nextProbability : Double = { r.nextDouble() }
+  def nextProbability: Double = { r.nextDouble() }
 
   /** Returns a random integer between 0 and upperbound (inclusive). */
-  def nextInt(upperbound: Int) : Int = { r.nextInt(upperbound) }
+  def nextInt(upperbound: Int): Int = { r.nextInt(upperbound) }
 
   /** Returns a random boolean value. */
   def nextBoolean: Boolean = { r.nextBoolean() }
 
   /** Returns true with probability p or false otherwise. */
-  def nextBoolean(p: Double): Boolean = { if(nextProbability < p) true else false }
+  def nextBoolean(p: Double): Boolean = {
+    if (nextProbability < p) true else false
+  }
 }

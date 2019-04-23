@@ -1,5 +1,7 @@
 val username = "markblokpoel"
-val repo = "com.markblokpoel.lanag-core"
+val repo = "lanag-core"
+
+updateOptions := updateOptions.value.withCachedResolution(false)
 
 lazy val commonSettings = Seq(
   name := repo,
@@ -17,7 +19,8 @@ lazy val commonSettings = Seq(
   // Compile options
   updateImpactOpenBrowser := false,
   compile in Compile := (compile in Compile).dependsOn(formatAll).value,
-  mainClass in assembly := Some("com.markblokpoel.lanag.com.markblokpoel.lanag.coreg.util.DefaultMain"),
+  mainClass in assembly := Some(
+    ".com.markblokpoel.lanag.core.util.DefaultMain"),
   test in Test := (test in Test).dependsOn(checkFormat).value,
   formatAll := {
     (scalafmt in Compile).value
@@ -32,39 +35,45 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = (project in file("."))
-  .settings(name := s"$repo-root")
+  .settings(name := s"$repo")
   .settings(commonSettings: _*)
+  .settings(publishSettings: _*)
   .settings(docSettings: _*)
-  .settings(skip in publish := true)
+//  .settings(skip in publish := true)
   .settings(releaseSettings: _*)
-  .enablePlugins(ScalaUnidocPlugin)
+  .enablePlugins(SiteScaladocPlugin)
+//  .enablePlugins(ScalaUnidocPlugin)
   .enablePlugins(GhpagesPlugin)
 
 /*
  Scaladoc settings
  Note: To compile diagrams, Graphviz must be installed in /usr/local/bin
  */
+import com.typesafe.sbt.SbtGit.GitKeys._
 lazy val docSettings = Seq(
   autoAPIMappings := true,
-  siteSourceDirectory := baseDirectory.value / "site",
-  scalacOptions in(Compile, doc) ++= Seq(
+//  unidocProjectFilter in (ScalaUnidoc, unidoc) := inAnyProject,
+  siteSourceDirectory := target.value / "api",
+  git.remoteRepo := scmInfo.value.get.connection,
+  envVars in ghpagesPushSite += ("SBT_GHPAGES_COMMIT_MESSAGE" -> s"Publishing Scaladoc [CI SKIP]"),
+  scalacOptions in (Compile, doc) ++= Seq(
     "-groups",
     "-diagrams",
     "-implicits",
-    "-doc-root-content", baseDirectory.value + "/overview.txt",
-    "-doc-title", "Language Agents",
-    "-diagrams-dot-path", "/usr/local/bin/dot"),
-  siteSubdirName in ScalaUnidoc := "latest/api",
-  addMappingsToSiteDir(mappings in(ScalaUnidoc, packageDoc), siteSubdirName in ScalaUnidoc),
-  git.remoteRepo := s"git@github.com:$username/$repo.git",
-  envVars in ghpagesPushSite += ("SBT_GHPAGES_COMMIT_MESSAGE" -> s"Publishing Scaladoc [CI SKIP]")
+    "-doc-root-content",
+    baseDirectory.value + "/overview.txt",
+    "-doc-title",
+    "Language Agents",
+    "-diagrams-dot-path",
+    "/usr/local/bin/dot"
+  )
 )
 
-
 // Enforce source formatting before submit
-lazy val formatAll = taskKey[Unit]("Format all the source code which includes src, test, and build files")
-lazy val checkFormat = taskKey[Unit]("Check all the source code which includes src, test, and build files")
-
+lazy val formatAll = taskKey[Unit](
+  "Format all the source code which includes src, test, and build files")
+lazy val checkFormat = taskKey[Unit](
+  "Check all the source code which includes src, test, and build files")
 
 // Maven / Scaladex release settings
 import ReleaseTransformations._
@@ -77,17 +86,24 @@ lazy val releaseSettings = Seq(
     //runTest,
     setReleaseVersion,
     //commitReleaseVersion,
+    //ghpagesPushSite,
     tagRelease,
-    releaseStepCommandAndRemaining("+publishSigned"),
+    releaseStepCommandAndRemaining("publishSigned"),
     setNextVersion,
     //commitNextVersion,
     releaseStepCommand("sonatypeReleaseAll"),
     //pushChanges
-  ),
-  // Github publish settings
+  )
+)
+
+// Github and OSS Sonatype/Maven publish settings
+lazy val publishSettings = Seq(
   homepage := Some(url(s"https://github.com/$username/$repo")),
-  licenses += "MIT" -> url(s"https://github.com/$username/$repo/blob/master/LICENSE"),
-  scmInfo := Some(ScmInfo(url(s"https://github.com/$username/$repo"), s"git@github.com:$username/$repo.git")),
+  licenses += "GPLv3" -> url(
+    s"https://github.com/$username/$repo/blob/master/LICENSE"),
+  scmInfo := Some(
+    ScmInfo(url(s"https://github.com/$username/$repo"),
+            s"git@github.com:$username/$repo.git")),
   apiURL := Some(url(s"https://$username.github.io/$repo/latest/api/")),
   releaseCrossBuild := true,
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
@@ -100,16 +116,18 @@ lazy val releaseSettings = Seq(
     )
   ),
   useGpg := true,
-  usePgpKeyHex("2774FB8FDE41F70F72F7FA1BB1B7EBBD73248A55"),
+  usePgpKeyHex("15B885FCC9586C56EE4587C9993E5F170C68BA83"),
   publishMavenStyle := true,
   publishArtifact in Test := false,
-  publishTo := Some(if (isSnapshot.value) Opts.resolver.sonatypeSnapshots else Opts.resolver.sonatypeStaging),
-  sonatypeProfileName := "markblokpoel",
+  publishTo := Some(
+    if (isSnapshot.value) Opts.resolver.sonatypeSnapshots
+    else Opts.resolver.sonatypeStaging),
 //  credentials ++= (for {
 //    username <- sys.env.get("SONATYPE_USERNAME")
 //    password <- sys.env.get("SONATYPE_PASSWORD")
 //  } yield Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", username, password)).toSeq,
   // Following 2 lines need to get around https://github.com/sbt/sbt/issues/4275
   publishConfiguration := publishConfiguration.value.withOverwrite(true),
-  publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true)
+  publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(
+    true)
 )

@@ -4,5 +4,4 @@ package com.markblokpoel.lanag
   *
   * @author Mark Blokpoel
   */
-package object math {
-}
+package object math {}

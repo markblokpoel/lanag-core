@@ -8,6 +8,7 @@ import scala.util.Random
   * @author Mark Blokpoel
   */
 object Probability {
+
   /** Returns an index to the vector, pointing to the highest value in the vector.
     * If multiple maxima exist, it returns an index to one of those at random.
     * If the vector values is empty, it returns None.
@@ -39,8 +40,8 @@ object Probability {
     if (values.isEmpty)
       None
     else {
-      val softenedDistribution = values.map {
-        p => exp(beta * p) / values.map(q => exp(q * beta)).sum
+      val softenedDistribution = values.map { p =>
+        exp(beta * p) / values.map(q => exp(q * beta)).sum
       }
 
       if (softenedDistribution.exists(_.isNaN))
@@ -50,7 +51,9 @@ object Probability {
 
         def findTarget(d: List[Double], ind: Int, acc: Double): Int = {
           d match {
-            case head :: tail => if (arrow < acc) ind - 1 else findTarget(tail, ind + 1, acc + head)
+            case head :: tail =>
+              if (arrow < acc) ind - 1
+              else findTarget(tail, ind + 1, acc + head)
             case _ => ind - 1
           }
         }
@@ -68,6 +71,8 @@ object Probability {
     * @param distribution The probability distribution, the values in this list should add to 1.0.
     */
   def entropy(distribution: Vector[Double]): Double = {
-    distribution.fold(0.0) { (e, p) => e - (if (p > 0) p * math.log(p) / math.log(2) else 0) }
+    distribution.fold(0.0) { (e, p) =>
+      e - (if (p > 0) p * math.log(p) / math.log(2) else 0)
+    }
   }
 }

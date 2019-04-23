@@ -18,6 +18,7 @@ trait Signal
   * @author Mark Blokpoel
   */
 abstract class ContentSignalPrototype[T] extends Signal {
+
   /** Access the content. */
   val content: T
 
@@ -33,11 +34,7 @@ abstract class ContentSignalPrototype[T] extends Signal {
   * @param content The optional signal index.
   * @author Mark Blokpoel
   */
-case class ContentSignal(override val content: Option[Int]) extends ContentSignalPrototype[Option[Int]] {
+case class ContentSignal(override val content: Option[Int])
+    extends ContentSignalPrototype[Option[Int]] {
   override def isDefined: Boolean = content.isDefined
 }
-
-
-
-
-

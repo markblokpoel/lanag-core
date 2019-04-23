@@ -11,5 +11,4 @@ package com.markblokpoel.lanag
   *
   * @author Mark Blokpoel
   */
-package object core {
-}
+package object core {}

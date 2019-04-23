@@ -11,6 +11,7 @@ package com.markblokpoel.lanag.core
   */
 @SerialVersionUID(100L)
 abstract class Agent[I <: Intention, S <: Signal] extends Serializable {
+
   /** Returns an immutable copy of the agent, but as a speaker. */
   def asSpeaker: Speaker[I, S]
 
@@ -28,6 +29,7 @@ abstract class Agent[I <: Intention, S <: Signal] extends Serializable {
   * @author Mark Blokpoel
   */
 trait Speaker[I <: Intention, S <: Signal] extends Agent[I, S] {
+
   /** Selects an intention for the agent to communicate. */
   def selectIntention: I
 
@@ -51,6 +53,7 @@ trait Speaker[I <: Intention, S <: Signal] extends Agent[I, S] {
   * @author Mark Blokpoel
   */
 trait Listener[I <: Intention, S <: Signal] extends Agent[I, S] {
+
   /** Interprets a signal.
     *
     * @param signal The [[com.markblokpoel.lanag.core.Signal]] to be interpreted.
@@ -60,4 +63,3 @@ trait Listener[I <: Intention, S <: Signal] extends Agent[I, S] {
     */
   def interpretSignal(signal: S): (I, Data)
 }
-

@@ -16,25 +16,36 @@ import com.markblokpoel.lanag.util.InteractionIdentifier
   * @author Mark Blokpoel
   */
 @SerialVersionUID(100L)
-abstract class Interaction[I <: Intention, S <: Signal, A <: Agent[I, S]](val agent1: A, val agent2: A, val originData: Data = NoData()) extends Serializable {
+abstract class Interaction[I <: Intention, S <: Signal, A <: Agent[I, S]](
+    val agent1: A,
+    val agent2: A,
+    val originData: Data = NoData())
+    extends Serializable {
+
   /** The unique ID number of this pair / interaction. */
   val pairId: Long = InteractionIdentifier.nextId
 
   /** Specifies what type of speakers this interaction uses. Must be a subtype of the base agent type. */
   type SpeakerType <: Speaker[I, S] with A
+
   /** Specifies what type of listeners this interaction uses. Must be a subtype of the base agent type. */
   type ListenerType <: Listener[I, S] with A
 
   /** Specifies agent1 in speaker mode. */
   val agent1AsSpeaker: SpeakerType
+
   /** Specifies agent2 in speaker mode. */
   val agent2AsSpeaker: SpeakerType
+
   /** Specifies agent1 in listener mode. */
   val agent1AsListener: ListenerType
+
   /** Specifies agent2 in listener mode. */
   val agent2AsListener: ListenerType
+
   /** The current speaker. */
   protected var currentSpeaker: SpeakerType
+
   /** The current listener. */
   protected var currentListener: ListenerType
 

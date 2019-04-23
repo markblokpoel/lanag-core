@@ -33,5 +33,4 @@ package com.markblokpoel.lanag
   *
   * @author Mark Blokpoel
   */
-package object util {
-}
+package object util {}

@@ -23,11 +23,16 @@ class StructuredLexicon(val vocabularyRepresentations: Vector[Vector[Boolean]],
                         val mappingFunction: StructuredMappingFunction,
                         override protected val data: Vector[Double],
                         val mappingThreshold: Option[Double] = None)
-  extends Lexicon(vocabularyRepresentations.length, contextRepresentations.length, data) {
-  require(vocabularyRepresentations.forall(_.length == vocabularyRepresentations.head.length)
-    && contextRepresentations.forall(_.length == contextRepresentations.head.length)
-    && vocabularyRepresentations.head.length == contextRepresentations.head.length
-    , "Vocabulary and context binary representations are not of equal length."
+    extends Lexicon(vocabularyRepresentations.length,
+                    contextRepresentations.length,
+                    data) {
+  require(
+    vocabularyRepresentations.forall(
+      _.length == vocabularyRepresentations.head.length)
+      && contextRepresentations.forall(
+        _.length == contextRepresentations.head.length)
+      && vocabularyRepresentations.head.length == contextRepresentations.head.length,
+    "Vocabulary and context binary representations are not of equal length."
   )
 
   /**
@@ -49,8 +54,11 @@ object StructuredLexicon {
   private def randomBinaryString(representationLength: Int): Vector[Boolean] =
     (for (_ <- 1 to representationLength) yield RNG.nextBoolean).toVector
 
-  private def generateBinaryStrings(representationLength: Int, vocabularySize: Int): Vector[Vector[Boolean]] =
-    (for (_ <- 1 to vocabularySize) yield randomBinaryString(representationLength)).toVector
+  private def generateBinaryStrings(
+      representationLength: Int,
+      vocabularySize: Int): Vector[Vector[Boolean]] =
+    (for (_ <- 1 to vocabularySize)
+      yield randomBinaryString(representationLength)).toVector
 
   /** Returns a mutated (but immutable) vector of binary string representations. Each bit in each binary
     * string is mutated with probability <code>changeRate</code>.
@@ -58,9 +66,12 @@ object StructuredLexicon {
     * @param listOfRepresentations The original vector of binary string representations.
     * @param changeRate            The probability with which each bit in each binary string is mutated.
     */
-  def mutateStructuredRepresentations(listOfRepresentations: Vector[Vector[Boolean]], changeRate: Double): Vector[Vector[Boolean]] = {
-    for {representation <- listOfRepresentations}
-      yield for {bit <- representation} yield if (RNG.nextBoolean(changeRate)) !bit else bit
+  def mutateStructuredRepresentations(
+      listOfRepresentations: Vector[Vector[Boolean]],
+      changeRate: Double): Vector[Vector[Boolean]] = {
+    for { representation <- listOfRepresentations } yield
+      for { bit <- representation } yield
+        if (RNG.nextBoolean(changeRate)) !bit else bit
   }
 
   /** Generates a graded [[StructuredLexicon]] from scratch, randomly generating also the binary string representations
@@ -76,12 +87,15 @@ object StructuredLexicon {
     * @param contextSize          The size of the context of the lexicon.
     * @return A randomly generated graded structured lexicon.
     */
-  def generateGradedStructuredLexicon(representationLength: Int,
-                                      mappingFunction: StructuredMappingFunction,
-                                      vocabularySize: Int,
-                                      contextSize: Int): StructuredLexicon = {
-    val vocabularyRepresentations = generateBinaryStrings(representationLength, vocabularySize)
-    val contextRepresentations = generateBinaryStrings(representationLength, contextSize)
+  def generateGradedStructuredLexicon(
+      representationLength: Int,
+      mappingFunction: StructuredMappingFunction,
+      vocabularySize: Int,
+      contextSize: Int): StructuredLexicon = {
+    val vocabularyRepresentations =
+      generateBinaryStrings(representationLength, vocabularySize)
+    val contextRepresentations =
+      generateBinaryStrings(representationLength, contextSize)
 
     generateGradedStructuredLexicon(
       vocabularyRepresentations,
@@ -100,14 +114,16 @@ object StructuredLexicon {
     *                                  representations.
     * @return A graded structured lexicon.
     */
-  def generateGradedStructuredLexicon(vocabularyRepresentations: Vector[Vector[Boolean]],
-                                      contextRepresentations: Vector[Vector[Boolean]],
-                                      mappingFunction: StructuredMappingFunction): StructuredLexicon = {
+  def generateGradedStructuredLexicon(
+      vocabularyRepresentations: Vector[Vector[Boolean]],
+      contextRepresentations: Vector[Vector[Boolean]],
+      mappingFunction: StructuredMappingFunction): StructuredLexicon = {
     val data =
       for (signalRepresentation <- vocabularyRepresentations;
            referentRepresentation <- contextRepresentations)
         yield {
-          val a: Double = mappingFunction(signalRepresentation, referentRepresentation)
+          val a: Double =
+            mappingFunction(signalRepresentation, referentRepresentation)
           a
         }
 
@@ -132,13 +148,16 @@ object StructuredLexicon {
     * @param contextSize          The size of the context of the lexicon.
     * @return A randomly generated binary structured lexicon.
     */
-  def generateBinaryStructuredLexicon(representationLength: Int,
-                                      mappingFunction: StructuredMappingFunction,
-                                      mappingThreshold: Double,
-                                      vocabularySize: Int,
-                                      contextSize: Int): StructuredLexicon = {
-    val vocabularyRepresentations = generateBinaryStrings(representationLength, vocabularySize)
-    val contextRepresentations = generateBinaryStrings(representationLength, contextSize)
+  def generateBinaryStructuredLexicon(
+      representationLength: Int,
+      mappingFunction: StructuredMappingFunction,
+      mappingThreshold: Double,
+      vocabularySize: Int,
+      contextSize: Int): StructuredLexicon = {
+    val vocabularyRepresentations =
+      generateBinaryStrings(representationLength, vocabularySize)
+    val contextRepresentations =
+      generateBinaryStrings(representationLength, contextSize)
 
     generateBinaryStructuredLexicon(
       vocabularyRepresentations,
@@ -159,15 +178,17 @@ object StructuredLexicon {
     * @param mappingThreshold          This threshold is used to decide if a signal and referent are representationally similar.
     * @return A binary structured lexicon.
     */
-  def generateBinaryStructuredLexicon(vocabularyRepresentations: Vector[Vector[Boolean]],
-                                      contextRepresentations: Vector[Vector[Boolean]],
-                                      mappingFunction: StructuredMappingFunction,
-                                      mappingThreshold: Double): StructuredLexicon = {
+  def generateBinaryStructuredLexicon(
+      vocabularyRepresentations: Vector[Vector[Boolean]],
+      contextRepresentations: Vector[Vector[Boolean]],
+      mappingFunction: StructuredMappingFunction,
+      mappingThreshold: Double): StructuredLexicon = {
     val data =
       for (signalRepresentation <- vocabularyRepresentations;
            referentRepresentation <- contextRepresentations)
         yield {
-          val a: Double = mappingFunction(signalRepresentation, referentRepresentation)
+          val a: Double =
+            mappingFunction(signalRepresentation, referentRepresentation)
           if (a >= mappingThreshold) 1.0 else 0.0
         }
 
@@ -193,10 +214,11 @@ sealed trait StructuredMappingFunction {
   */
 case object HAMMING_DISTANCE extends StructuredMappingFunction {
   override def apply(r1: Vector[Boolean], r2: Vector[Boolean]): Double = {
-    val distance = ((0 to r2.size).toList /: r1) ((prev, x) =>
+    val distance = ((0 to r2.size).toList /: r1)((prev, x) =>
       (prev zip prev.tail zip r2).scanLeft(prev.head + 1) {
-        case (h, ((d, v), y)) => min(min(h + 1, v + 1), d + (if (x == y) 0 else 1))
-      }).last
+        case (h, ((d, v), y)) =>
+          min(min(h + 1, v + 1), d + (if (x == y) 0 else 1))
+    }).last
     distance / r1.length.toDouble
   }
 

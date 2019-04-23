@@ -17,10 +17,11 @@ import scala.reflect.ClassTag
   * @author Mark Blokpoel
   */
 case class SparkSimulation(local: Boolean = false, cores: Int = 4) {
-  val spark: SparkSession = if(local)
-    SparkSession.builder.master("local[4]").appName("Lanag2").getOrCreate()
-  else
-    SparkSession.builder.appName("Lanag2").getOrCreate()
+  val spark: SparkSession =
+    if (local)
+      SparkSession.builder.master("local[4]").appName("Lanag2").getOrCreate()
+    else
+      SparkSession.builder.appName("Lanag2").getOrCreate()
 
   /** Returns the local spark context. */
   def context: SparkContext = spark.sparkContext
