@@ -4,6 +4,9 @@ import com.markblokpoel.lanag.rsa.Lexicon
 import jupyter.Displayers
 import scala.collection.JavaConverters._
 
+/**
+  * This is a collection of Displayer classes for nice html formatted output in Jupyter notebooks.
+  */
 object LanagCoreDisplayers {
   Displayers.register(classOf[Lexicon], (lexicon: Lexicon) => {
     import scalatags.Text.all._
