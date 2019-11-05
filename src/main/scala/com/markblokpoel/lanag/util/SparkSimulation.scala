@@ -13,14 +13,15 @@ import scala.reflect.ClassTag
   * website [[https://spark.apache.org/downloads.html]] for installation instructions.
   *
   * @param local Flag to specify whether or not should run in local mode.
-  * @param cores Number of cores to use in local mode.
+  * @param cores Number of cores to use in local mode, default is 4. Set to 0 to request maximum number of cores.
   * @author Mark Blokpoel
   */
 case class SparkSimulation(local: Boolean = false, cores: Int = 4) {
   val spark: SparkSession =
-    if (local)
-      SparkSession.builder.master("local[4]").appName("Lanag2").getOrCreate()
-    else
+    if (local) {
+      if(cores>0) SparkSession.builder.master(s"local[$cores]").appName("Lanag2").getOrCreate()
+      else  SparkSession.builder.master(s"local[*]").appName("Lanag2").getOrCreate()
+    } else
       SparkSession.builder.appName("Lanag2").getOrCreate()
 
   /** Returns the local spark context. */
