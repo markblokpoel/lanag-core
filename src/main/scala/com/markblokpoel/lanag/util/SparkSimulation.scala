@@ -19,8 +19,13 @@ import scala.reflect.ClassTag
 case class SparkSimulation(local: Boolean = false, cores: Int = 4) {
   val spark: SparkSession =
     if (local) {
-      if(cores>0) SparkSession.builder.master(s"local[$cores]").appName("Lanag2").getOrCreate()
-      else  SparkSession.builder.master(s"local[*]").appName("Lanag2").getOrCreate()
+      if (cores > 0)
+        SparkSession.builder
+          .master(s"local[$cores]")
+          .appName("Lanag2")
+          .getOrCreate()
+      else
+        SparkSession.builder.master(s"local[*]").appName("Lanag2").getOrCreate()
     } else
       SparkSession.builder.appName("Lanag2").getOrCreate()
 
