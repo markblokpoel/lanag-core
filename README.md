@@ -1,9 +1,9 @@
 # Lanag simulation framework - Core
 
-Documentation coming soon..
+##Requirements
+Install Scala and Apache Spark, then import the library in via sbt by adding the following
+line to your `build.sbt` file:
 
-## Running
-From IntellijIdea check include Provided.
-
-From SBT compile using assembly to incorporate all relevant libraries,
-excluding Spark. Then use spark-submit or java -cp [jarfile] [MainClass].
+```
+libraryDependencies += "com.markblokpoel" %% "lanag-core" % "0.3.2"
+```
