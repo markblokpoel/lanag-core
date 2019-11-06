@@ -32,7 +32,7 @@ case class ReferentialIntention(override val content: Option[Int])
 }
 
 /**
-  * Helper object to create instance of [[ReferentialIntention]].
+  * Helper object to create instance of [[com.markblokpoel.lanag.core.ReferentialIntention]].
   */
 case object ReferentialIntention {
   def apply(content: Int): com.markblokpoel.lanag.core.ReferentialIntention = com.markblokpoel.lanag.core.ReferentialIntention(Some(content))
