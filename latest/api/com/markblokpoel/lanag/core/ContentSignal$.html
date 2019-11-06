@@ -146,9 +146,9 @@ what minimally should be implemented in any Lanag agent-based simulation.
                         <a class="class" href="AgentPair.html" title="Data structure for storing pairs of agents, their type and their origin."></a>
                         <a href="AgentPair.html" title="Data structure for storing pairs of agents, their type and their origin.">AgentPair</a>
                       </li><li class="current-entities indented4">
-                        <a class="object" href="ContentSignal$.html" title="Helper object to create instance of ContentSignal."></a>
-                        <a class="class" href="" title="A basic content signal."></a>
-                        <a href="" title="A basic content signal.">ContentSignal</a>
+                        <a class="object" href="" title="Helper object to create instance of ContentSignal."></a>
+                        <a class="class" href="ContentSignal.html" title="A basic content signal."></a>
+                        <a href="ContentSignal.html" title="A basic content signal.">ContentSignal</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
                         <a class="class" href="ContentSignalPrototype.html" title="The prototype signal that has some content of type T."></a>
@@ -206,49 +206,38 @@ what minimally should be implemented in any Lanag agent-based simulation.
             </div>
           </div>
           <div id="content">
-            <body class="class type">
+            <body class="object value">
       <div id="definition">
-        <a href="ContentSignal$.html" title="See companion object"><div class="big-circle class-companion-object">c</div></a>
+        <a href="ContentSignal.html" title="See companion class"><div class="big-circle object-companion-class">o</div></a>
         <p id="owner"><a href="../../../index.html" class="extype" name="com">com</a>.<a href="../../index.html" class="extype" name="com.markblokpoel">markblokpoel</a>.<a href="../index.html" class="extype" name="com.markblokpoel.lanag">lanag</a>.<a href="index.html" class="extype" name="com.markblokpoel.lanag.core">core</a></p>
-        <h1><a href="ContentSignal$.html" title="See companion object">ContentSignal</a><span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html" title="Permalink">
+        <h1><a href="ContentSignal.html" title="See companion class">ContentSignal</a><span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
         <h3><span class="morelinks"><div>
-            Companion <a href="ContentSignal$.html" title="See companion object">object ContentSignal</a>
+            Companion <a href="ContentSignal.html" title="See companion class">class ContentSignal</a>
           </div></span></h3>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">ContentSignal</span><span class="params">(<span name="content">content: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>)</span><span class="result"> extends <a href="ContentSignalPrototype.html" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]] with <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <span class="name">ContentSignal</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A basic content signal.</p><p>The content of this signal type is an index referring to a particular signal,
-for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblokpoel.lanag.rsa.Lexicon">com.markblokpoel.lanag.rsa.Lexicon</a>.
-</p></div><dl class="paramcmts block"><dt class="param">content</dt><dd class="cmt"><p>The optional signal index.</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Helper object to create instance of ContentSignal.
+</p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Equals.html#scala.Equals" class="extype" name="scala.Equals">Equals</a>, <a href="ContentSignalPrototype.html" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]], <a href="Signal.html" class="extype" name="com.markblokpoel.lanag.core.Signal">Signal</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
-        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
-                <span class="toggle diagram-link">
-                  Type Hierarchy
-                </span>
-                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 367.50 118.00" height="118pt" width="368pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 363.5,-114 363.5,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="com.markblokpoel.lanag.core.ContentSignal (this class)" xlink:href="#inheritance-diagram"><path d="M260.667,-49C260.667,-49 184.333,-49 184.333,-49 180.167,-49 176,-44.8333 176,-40.6667 176,-40.6667 176,-32.3333 176,-32.3333 176,-28.1667 180.167,-24 184.333,-24 184.333,-24 260.667,-24 260.667,-24 264.833,-24 269,-28.1667 269,-32.3333 269,-32.3333 269,-40.6667 269,-40.6667 269,-44.8333 264.833,-49 260.667,-49" stroke="#418565" fill="#418565"></path><image xlink:href="../../../../lib/class_diagram.png" y="-43.5" x="186.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-33.6" x="207.26" text-anchor="start">ContentSignal</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="com.markblokpoel.lanag.core.ContentSignalPrototype" xlink:href="ContentSignalPrototype.html#inheritance-diagram"><path d="M160.667,-110C160.667,-110 8.33333,-110 8.33333,-110 4.16667,-110 0,-105.833 0,-101.667 0,-101.667 0,-93.3333 0,-93.3333 0,-89.1667 4.16667,-85 8.33333,-85 8.33333,-85 160.667,-85 160.667,-85 164.833,-85 169,-89.1667 169,-93.3333 169,-93.3333 169,-101.667 169,-101.667 169,-105.833 164.833,-110 160.667,-110" stroke="#418565" fill="#418565"></path><image xlink:href="../../../../lib/class_diagram.png" y="-104.5" x="10.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-94.6" x="31.4609" text-anchor="start">ContentSignalPrototype[Option[Int]]</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="ContentSignal is a subtype of ContentSignalPrototype[Option[Int]]"><path d="M117.896,-82.2219C141.578,-72.0972 172.966,-58.6777 195.161,-49.1884" stroke="#d4d4d4" fill="none"></path><polygon points="116.909,-79.9795 111.435,-84.9841 118.835,-84.485 116.909,-79.9795" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="scala.Product"><path d="M249.167,-110C249.167,-110 195.833,-110 195.833,-110 191.667,-110 187.5,-105.833 187.5,-101.667 187.5,-101.667 187.5,-93.3333 187.5,-93.3333 187.5,-89.1667 191.667,-85 195.833,-85 195.833,-85 249.167,-85 249.167,-85 253.333,-85 257.5,-89.1667 257.5,-93.3333 257.5,-93.3333 257.5,-101.667 257.5,-101.667 257.5,-105.833 253.333,-110 249.167,-110" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../../../lib/trait_diagram.png" y="-104.5" x="197.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-94.6" x="218.104" text-anchor="start">Product</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="ContentSignal is a subtype of Product"><path d="M222.5,-77.7603C222.5,-68.3675 222.5,-57.2882 222.5,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="220.05,-77.8435 222.5,-84.8435 224.95,-77.8435 220.05,-77.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="scala.Serializable"><path d="M351.167,-110C351.167,-110 283.833,-110 283.833,-110 279.667,-110 275.5,-105.833 275.5,-101.667 275.5,-101.667 275.5,-93.3333 275.5,-93.3333 275.5,-89.1667 279.667,-85 283.833,-85 283.833,-85 351.167,-85 351.167,-85 355.333,-85 359.5,-89.1667 359.5,-93.3333 359.5,-93.3333 359.5,-101.667 359.5,-101.667 359.5,-105.833 355.333,-110 351.167,-110" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../../../lib/trait_diagram.png" y="-104.5" x="285.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-94.6" x="306.211" text-anchor="start">Serializable</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph1_3_0"><g id="a_inheritance|graph1_3_0"><a xlink:title="ContentSignal is a subtype of Serializable"><path d="M292.589,-81.0291C276.507,-71.0415 255.923,-58.2572 241.23,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="291.492,-83.2316 298.731,-84.8435 294.077,-79.0691 291.492,-83.2316" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
-                <div id="diagram-controls" class="hiddenContent">
-                  <button id="diagram-zoom-out" class="diagram-btn"><i class="material-icons"></i></button>
-                  <button id="diagram-zoom-in" class="diagram-btn"><i class="material-icons"></i></button>
-                  <button title="Toggle full-screen" id="diagram-fs" class="diagram-btn to-full"><i class="material-icons"></i></button>
-                </div>
-              </div></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Equals.html#scala.Equals" class="extype" name="scala.Equals">Equals</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -273,12 +262,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="com.markblokpoel.lanag.core.ContentSignal"><span>ContentSignal</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="com.markblokpoel.lanag.core.ContentSignalPrototype"><span>ContentSignalPrototype</span></li><li class="in" name="com.markblokpoel.lanag.core.Signal"><span>Signal</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
-                  </ol>
-                </div><div class="ancestors">
-                  <span class="filtertype">Implicitly<br />
-                  </span>
-                  <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                    <li class="in" name="com.markblokpoel.lanag.core.ContentSignal"><span>ContentSignal</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -296,26 +280,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
 
       <div id="template">
         <div id="allMembers">
-        <div id="constructors" class="members">
-              <h3>Instance Constructors</h3>
-              <ol><li name="com.markblokpoel.lanag.core.ContentSignal#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(content:Option[Int]):com.markblokpoel.lanag.core.ContentSignal"></a><a id="&lt;init&gt;:ContentSignal"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#&lt;init&gt;(content:Option[Int]):com.markblokpoel.lanag.core.ContentSignal" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">ContentSignal</span><span class="params">(<span name="content">content: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>)</span>
-      </span>
-      
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">content</dt><dd class="cmt"><p>The optional signal index.</p></dd></dl></div>
-    </li></ol>
-            </div>
+        
 
         
 
@@ -327,7 +292,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -343,7 +308,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html###():Int" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -356,53 +321,10 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="+(other:String):String"></a><a id="+(String):String"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#+(other:String):String" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>] performed by method any2stringadd in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
-    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(ContentSignal,B)"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#-&gt;[B](y:B):(A,B)" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>] performed by method ArrowAssoc in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
-                <span class="name">@inline</span><span class="args">()</span>
-              
-        </dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -415,10 +337,26 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.core.ContentSignal#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="apply(signal:Int):com.markblokpoel.lanag.core.ContentSignal"></a><a id="apply(Int):ContentSignal"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#apply(signal:Int):com.markblokpoel.lanag.core.ContentSignal" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="signal">signal: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <a href="ContentSignal.html" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a></span>
+      </span>
+      
+      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -434,7 +372,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#clone():Object" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -455,106 +393,10 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.markblokpoel.lanag.core.ContentSignal#content" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="content:Option[Int]"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#content:Option[Int]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">content</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Access the content.</p><div class="fullcomment"><div class="comment cmt"><p>Access the content.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> → <a href="ContentSignalPrototype.html" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a></dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((ContentSignal)⇒Boolean,⇒Any):ContentSignal"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>] performed by method Ensuring in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((ContentSignal)⇒Boolean):ContentSignal"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>] performed by method Ensuring in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):ContentSignal"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>] performed by method Ensuring in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):ContentSignal"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#ensuring(cond:Boolean):A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>] performed by method Ensuring in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -567,10 +409,26 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#equals(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#finalize():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -589,33 +447,10 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#formatted(fmtstr:String):String" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>] performed by method StringFormat in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
-                <span class="name">@inline</span><span class="args">()</span>
-              
-        </dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#getClass():Class[_]" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -631,26 +466,10 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="com.markblokpoel.lanag.core.ContentSignal#isDefined" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="isDefined:Boolean"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#isDefined:Boolean" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">isDefined</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Returns whether or not the signal is defined.</p><div class="fullcomment"><div class="comment cmt"><p>Returns whether or not the signal is defined.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> → <a href="ContentSignalPrototype.html" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -666,7 +485,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -682,7 +501,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#notify():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -701,7 +520,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#notifyAll():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -720,7 +539,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -736,7 +555,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#wait():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -758,7 +577,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -780,7 +599,7 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal$.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -801,26 +620,6 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(ContentSignal,B)"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignal.html#→[B](y:B):(A,B)" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>] performed by method ArrowAssoc in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li>
               </ol>
             </div>
@@ -839,32 +638,12 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.8/scala/Equals.html#scala.Equals" class="extype" name="scala.Equals">Equals</a></h3>
-            </div><div class="parent" name="com.markblokpoel.lanag.core.ContentSignalPrototype">
-              <h3>Inherited from <a href="ContentSignalPrototype.html" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]]</h3>
-            </div><div class="parent" name="com.markblokpoel.lanag.core.Signal">
-              <h3>Inherited from <a href="Signal.html" class="extype" name="com.markblokpoel.lanag.core.Signal">Signal</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></h3>
             </div>
-        <div class="conversion" name="scala.Predef.any2stringadd">
-              <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>]
-              </h3>
-            </div><div class="conversion" name="scala.Predef.StringFormat">
-              <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>]
-              </h3>
-            </div><div class="conversion" name="scala.Predef.Ensuring">
-              <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>]
-              </h3>
-            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
-              <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a>]
-              </h3>
-            </div>
+        
         </div>
 
         <div id="groupedMembers">
