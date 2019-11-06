@@ -40,8 +40,8 @@ case class ContentSignal(override val content: Option[Int])
 }
 
 /**
-  * Helper object to create instance of [[com.markblokpoel.lanag.core.ContentSignal]].
+  * Helper object to create instance of ContentSignal.
   */
 case object ContentSignal {
-  def apply(signal: Int): com.markblokpoel.lanag.core.ContentSignal = com.markblokpoel.lanag.core.ContentSignal(Some(signal))
+  def apply(signal: Int): ContentSignal = ContentSignal(Some(signal))
 }
