@@ -35,5 +35,6 @@ case class ReferentialIntention(override val content: Option[Int])
   * Helper object to create instance of ReferentialIntention.
   */
 case object ReferentialIntention {
-  def apply(content: Int): ReferentialIntention = ReferentialIntention(Some(content))
+  def apply(content: Int): ReferentialIntention =
+    ReferentialIntention(Some(content))
 }
