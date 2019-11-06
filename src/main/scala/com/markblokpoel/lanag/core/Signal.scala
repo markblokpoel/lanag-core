@@ -38,3 +38,10 @@ case class ContentSignal(override val content: Option[Int])
     extends ContentSignalPrototype[Option[Int]] {
   override def isDefined: Boolean = content.isDefined
 }
+
+/**
+  * Helper object to create instance of [[ContentSignal]].
+  */
+case object ContentSignal {
+  def apply(signal: Int): com.markblokpoel.lanag.core.ContentSignal = com.markblokpoel.lanag.core.ContentSignal(Some(signal))
+}

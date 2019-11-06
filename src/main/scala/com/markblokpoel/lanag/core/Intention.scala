@@ -30,3 +30,10 @@ case class ReferentialIntention(override val content: Option[Int])
     extends IntentionPrototype[Option[Int]] {
   override def isDefined: Boolean = content.isDefined
 }
+
+/**
+  * Helper object to create instance of [[ReferentialIntention]].
+  */
+case object ReferentialIntention {
+  def apply(content: Int): com.markblokpoel.lanag.core.ReferentialIntention = com.markblokpoel.lanag.core.ReferentialIntention(Some(content))
+}
