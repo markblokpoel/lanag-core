@@ -25,9 +25,7 @@ import com.markblokpoel.lanag.util.RNG
   * @author Mark Blokpoel
   */
 @SerialVersionUID(100L)
-case class Lexicon(vocabularySize: Int,
-                   contextSize: Int,
-                   protected val data: Vector[Double])
+case class Lexicon(vocabularySize: Int, contextSize: Int, data: Vector[Double])
     extends Serializable {
   require(data.length == vocabularySize * contextSize)
 
@@ -87,6 +85,11 @@ case class Lexicon(vocabularySize: Int,
     * index of a value in <code>data</code>.
     */
   private def colFromIndex(i: Int): Int = i % contextSize
+
+  //noinspection FoldTrueAnd
+  def isConsistent: Boolean =
+    (for (c <- 0 until contextSize)
+      yield getColumn(c).sum > 0.0).foldLeft(true)(_ && _)
 
   /** Computes the dot product between the graded lexicon and a vector of length <code>contextSize</code>.
     *
@@ -172,7 +175,7 @@ case class Lexicon(vocabularySize: Int,
     */
   def setOrderAsSpeaker(n: Int): Lexicon =
     if (n == 0) this.normalizeColumns()
-    else setOrderAsSpeaker(n - 1).normalizeRows().normalizeColumns()
+    else setOrderAsListener(n - 1).normalizeColumns()
 
   /** Returns a transformation of this lexicon corresponding to a <code>n</code><sup>th</sup> order listener
     * as defined by the Rational Speech Act model.
@@ -181,7 +184,7 @@ case class Lexicon(vocabularySize: Int,
     */
   def setOrderAsListener(n: Int): Lexicon =
     if (n == 0) this.normalizeRows()
-    else setOrderAsListener(n - 1).normalizeColumns().normalizeRows()
+    else setOrderAsSpeaker(n).normalizeRows()
 
   /** Returns the asymmetry between this lexicon and that lexicon. Asymmetry is computed relative to the
     * similarity threshold, i.e., it is the mean number of signal-referent relations that are more than

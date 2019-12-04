@@ -21,7 +21,7 @@ import scala.math.min
 class StructuredLexicon(val vocabularyRepresentations: Vector[Vector[Boolean]],
                         val contextRepresentations: Vector[Vector[Boolean]],
                         val mappingFunction: StructuredMappingFunction,
-                        override protected val data: Vector[Double],
+                        override val data: Vector[Double],
                         val mappingThreshold: Option[Double] = None)
     extends Lexicon(vocabularyRepresentations.length,
                     contextRepresentations.length,

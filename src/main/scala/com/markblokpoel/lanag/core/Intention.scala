@@ -9,7 +9,8 @@ trait Intention
   *
   * @author Mark Blokpoel
   */
-abstract class IntentionPrototype[T] extends Intention {
+@SerialVersionUID(100L)
+abstract class IntentionPrototype[T] extends Intention with Serializable {
 
   /** Access the content. */
   val content: T

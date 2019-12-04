@@ -5,6 +5,7 @@ import scala.util.Random
 
 /** A collection of utility functions related to probability theory.
   *
+  * @deprecated Remains for backwards compatibility. Use [[Distribution]] instead which has higher precision.
   * @author Mark Blokpoel
   */
 object Probability {
@@ -49,6 +50,7 @@ object Probability {
       else {
         val arrow = Random.nextDouble
 
+        @scala.annotation.tailrec
         def findTarget(d: List[Double], ind: Int, acc: Double): Int = {
           d match {
             case head :: tail =>

@@ -17,7 +17,8 @@ trait Signal
   * @tparam T The type of the content.
   * @author Mark Blokpoel
   */
-abstract class ContentSignalPrototype[T] extends Signal {
+@SerialVersionUID(100L)
+abstract class ContentSignalPrototype[T] extends Signal with Serializable {
 
   /** Access the content. */
   val content: T
