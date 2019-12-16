@@ -5,5 +5,5 @@ Install Scala and Apache Spark, then import the library in via sbt by adding the
 line to your `build.sbt` file:
 
 ```
-libraryDependencies += "com.markblokpoel" %% "lanag-core" % "0.3.7"
+libraryDependencies += "com.markblokpoel" %% "lanag-core" % "0.3.8"
 ```

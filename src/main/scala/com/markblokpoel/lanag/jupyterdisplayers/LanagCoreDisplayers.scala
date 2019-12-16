@@ -16,7 +16,7 @@ object LanagCoreDisplayers {
         "text/html" -> {
           table(cls := "table")(
             lexicon match {
-              case Lexicon(vocabularySize, contextSize, data) =>
+              case Lexicon(vocabularySize, contextSize, data, _, _) =>
                 Vector(
                   tr(td(), for (i <- 1 to contextSize) yield th("R", sub(i))))
                   .union(for (i <- 0 until vocabularySize) yield {

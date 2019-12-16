@@ -25,7 +25,13 @@ import com.markblokpoel.lanag.util.RNG
   * @author Mark Blokpoel
   */
 @SerialVersionUID(100L)
-case class Lexicon(vocabularySize: Int, contextSize: Int, data: Vector[Double])
+case class Lexicon(vocabularySize: Int,
+                   contextSize: Int,
+                   data: Vector[Double],
+                   speakerDefinition: (Lexicon, Int) => Lexicon =
+                     Lexicon.asBlokpoeletalSpeaker,
+                   listenerDefinition: (Lexicon, Int) => Lexicon =
+                     Lexicon.asBlokpoelEtalListener)
     extends Serializable {
   require(data.length == vocabularySize * contextSize)
 
@@ -130,7 +136,7 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, data: Vector[Double])
   }
 
   /** Returns a normalization of this lexicon across columns (i.e., divides each cell by the sum of its column). */
-  private def normalizeColumns(): Lexicon = {
+  def normalizeColumns(): Lexicon = {
     val colSums = new Array[Double](contextSize)
     for (i <- data.indices)
       colSums(colFromIndex(i)) += data(i)
@@ -150,7 +156,7 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, data: Vector[Double])
   }
 
   /** Returns a normalization of this lexicon across rows (i.e., divides each cell by the sum of its row). */
-  private def normalizeRows(): Lexicon = {
+  def normalizeRows(): Lexicon = {
     val rowSums = new Array[Double](vocabularySize)
     for (i <- data.indices)
       rowSums(rowFromIndex(i)) += data(i)
@@ -173,18 +179,14 @@ case class Lexicon(vocabularySize: Int, contextSize: Int, data: Vector[Double])
     *
     * @param n The order of pragmatic reasoning.
     */
-  def setOrderAsSpeaker(n: Int): Lexicon =
-    if (n == 0) this.normalizeColumns()
-    else setOrderAsListener(n - 1).normalizeColumns()
+  def setOrderAsSpeaker(n: Int): Lexicon = speakerDefinition(this, n)
 
   /** Returns a transformation of this lexicon corresponding to a <code>n</code><sup>th</sup> order listener
     * as defined by the Rational Speech Act model.
     *
     * @param n The order of pragmatic reasoning.
     */
-  def setOrderAsListener(n: Int): Lexicon =
-    if (n == 0) this.normalizeRows()
-    else setOrderAsSpeaker(n).normalizeRows()
+  def setOrderAsListener(n: Int): Lexicon = listenerDefinition(this, n)
 
   /** Returns the asymmetry between this lexicon and that lexicon. Asymmetry is computed relative to the
     * similarity threshold, i.e., it is the mean number of signal-referent relations that are more than
@@ -403,6 +405,68 @@ object Lexicon {
     */
   def apply(matrix: Array[Array[Double]]): Lexicon =
     Lexicon(matrix.toVector.map(_.toVector))
+
+  /** Returns a transformation of this lexicon corresponding to a <code>n</code><sup>th</sup> order speaker
+    * as defined by Frank and Goodman (2012).
+    *
+    * @param lexicon The lexicon to be transformed.
+    * @param n The order of pragmatic reasoning.
+    */
+  def asFrankGoodmanSpeaker(lexicon: Lexicon, n: Int): Lexicon =
+    if (n == 0) lexicon.normalizeColumns()
+    else asFrankGoodmanListener(lexicon, n - 1).normalizeColumns()
+
+  /** Returns a transformation of this lexicon corresponding to a <code>n</code><sup>th</sup> order listener
+    * as defined by Frank and Goodman (2012).
+    *
+    * @param lexicon The lexicon to be transformed.
+    * @param n The order of pragmatic reasoning.
+    */
+  def asFrankGoodmanListener(lexicon: Lexicon, n: Int): Lexicon =
+    if (n == 0) lexicon.normalizeRows()
+    else asFrankGoodmanSpeaker(lexicon, n).normalizeRows()
+
+  /** Returns a transformation of this lexicon corresponding to a <code>n</code><sup>th</sup> order speaker
+    * as defined by Blokpoel et al. (2020).
+    *
+    * @param lexicon The lexicon to be transformed.
+    * @param n The order of pragmatic reasoning.
+    */
+  def asBlokpoeletalSpeaker(lexicon: Lexicon, n: Int): Lexicon =
+    if (n == 0) lexicon.normalizeColumns()
+    else
+      asBlokpoeletalSpeaker(lexicon, n - 1).normalizeRows().normalizeColumns()
+
+  /** Returns a transformation of lexicon corresponding to a <code>n</code><sup>th</sup> order listener
+    * as defined by Blokpoel et al. (2020).
+    *
+    * @param lexicon The lexicon to be transformed.
+    * @param n The order of pragmatic reasoning.
+    */
+  def asBlokpoelEtalListener(lexicon: Lexicon, n: Int): Lexicon =
+    if (n == 0) lexicon.normalizeRows()
+    else
+      asBlokpoelEtalListener(lexicon, n - 1).normalizeColumns().normalizeRows()
+
+  /** Returns a transformation of lexicon corresponding to a <code>n</code><sup>th</sup> order speaker
+    * as defined by Franke and Degen (2016).
+    *
+    * @param lexicon The lexicon to be transformed.
+    * @param n The order of pragmatic reasoning.
+    */
+  def asFrankeDegenSpeaker(lexicon: Lexicon, n: Int): Lexicon =
+    if (n == 0) lexicon.normalizeColumns()
+    else asFrankeDegenListener(lexicon, n - 1).normalizeColumns()
+
+  /** Returns a transformation of lexicon corresponding to a <code>n</code><sup>th</sup> order listener
+    * as defined by Franke and Degen (2016).
+    *
+    * @param lexicon The lexicon to be transformed.
+    * @param n The order of pragmatic reasoning.
+    */
+  def asFrankeDegenListener(lexicon: Lexicon, n: Int): Lexicon =
+    if (n == 0) lexicon.normalizeRows()
+    else asFrankeDegenSpeaker(lexicon, n - 1)
 
   /** Generates a randomized binary lexicon (i.e., each word-referent pair has <code>probability</code>
     * to be 1.0).
