@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>Language Agents  - com.markblokpoel.lanag.util.SparkSimulation</title>
-          <meta name="description" content="Language Agents - com.markblokpoel.lanag.util.SparkSimulation" />
-          <meta name="keywords" content="Language Agents com.markblokpoel.lanag.util.SparkSimulation" />
+          <title>Language Agents  - com.markblokpoel.lanag.math.Distribution</title>
+          <meta name="description" content="Language Agents - com.markblokpoel.lanag.math.Distribution" />
+          <meta name="keywords" content="Language Agents com.markblokpoel.lanag.math.Distribution" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -119,10 +119,10 @@ Github repository at <a href="https://github.com/markblokpoel/lanag-core" target
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="com.markblokpoel">markblokpoel</a></dd></dl></div>
-    </li><li name="com.markblokpoel.lanag.util" visbl="pub" class="indented4 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="util"></a><a id="util:util"></a>
+    </li><li name="com.markblokpoel.lanag.math" visbl="pub" class="indented4 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="math"></a><a id="math:math"></a>
       <span class="permalink">
-      <a href="../../../com/markblokpoel/lanag/index.html#util" title="Permalink">
+      <a href="../../../com/markblokpoel/lanag/index.html#math" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -131,45 +131,23 @@ Github repository at <a href="https://github.com/markblokpoel/lanag-core" target
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a title="Provides classes and objects for dealing with the simulation infrastructure." href="index.html"><span class="name">util</span></a>
+        <a title="A collection of com.markblokpoel.lanag.math utility functions, grouped by topic." href="index.html"><span class="name">math</span></a>
       </span>
       
-      <p class="shortcomment cmt">Provides classes and objects for dealing with the simulation infrastructure.</p><div class="fullcomment"><div class="comment cmt"><p>Provides classes and objects for dealing with the simulation infrastructure.</p><h4>Overview</h4><h5>Spark simulations</h5><p>Use <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">com.markblokpoel.lanag.util.SparkSimulation</a> to create an instance of Spark
-running locally on your machine:</p><pre><span class="kw">import</span> com.markblokpoel.lanag.com.markblokpoel.lanag.coreg.util.LocalSparkSimulation
-<span class="kw">import</span> LocalSparkSimulation.spark.implicits._
-
-<span class="kw">val</span> sequenceToBeParallelized = <span class="std">Seq</span>(...)
-<span class="kw">val</span> rdd = LocalSparkSimulation.parallelize(sequenceToBeParallelized)</pre><p>You can now RDD functions like <code>org.apache.spark.rdd.RDD.flatMap()</code> and
-<code>org.apache.spark.rdd.RDD.map()</code> to apply transformations to the sequence.</p><pre>rdd.map(a <span class="kw">=&gt;</span> a +<span class="num">1</span>)</pre><p>These will be executed lazily and in parallel. Until you write the results to file, or otherwise
-collect them, nothing will be executed. For a tutorial on Spark see the Apache Spark website
-<a href="https://spark.apache.org/docs/latest/quick-start.html" target="_blank">https://spark.apache.org/docs/latest/quick-start.html</a>.</p><h5>Global number generators</h5><p>The object <a href="InteractionIdentifier$.html" class="extype" name="com.markblokpoel.lanag.util.InteractionIdentifier">com.markblokpoel.lanag.util.InteractionIdentifier</a> is used in <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lanag.core.Interaction">com.markblokpoel.lanag.core.Interaction</a>
-to identify pairs of agents.</p><p>The object <a href="RNG$.html" class="extype" name="com.markblokpoel.lanag.util.RNG">com.markblokpoel.lanag.util.RNG</a> specifies a global random number generator. Implementations
-of <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lanag.core.Interaction">com.markblokpoel.lanag.core.Interaction</a> that use this object exclusive will be repeatable for specific RNG seeds.
+      <p class="shortcomment cmt">A collection of com.markblokpoel.lanag.math utility functions, grouped by topic.</p><div class="fullcomment"><div class="comment cmt"><p>A collection of com.markblokpoel.lanag.math utility functions, grouped by topic.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.markblokpoel.lanag">lanag</a></dd></dl></div>
     </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="class" href="ConfigWrapper.html" title=""></a>
-                        <a href="ConfigWrapper.html" title="">ConfigWrapper</a>
+                        <a class="class" href="" title="A probability distribution over a domain of objects."></a>
+                        <a href="" title="A probability distribution over a domain of objects.">Distribution</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="object" href="DefaultMain$.html" title=""></a>
-                        <a href="DefaultMain$.html" title="">DefaultMain</a>
+                        <a class="object" href="Probability$.html" title="A collection of utility functions related to probability theory."></a>
+                        <a href="Probability$.html" title="A collection of utility functions related to probability theory.">Probability</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="object" href="InteractionIdentifier$.html" title="Global parameter for generating unique identifier numbers for interactions."></a>
-                        <a href="InteractionIdentifier$.html" title="Global parameter for generating unique identifier numbers for interactions.">InteractionIdentifier</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="object" href="RNG$.html" title="A global Random Number Generator."></a>
-                        <a href="RNG$.html" title="A global Random Number Generator.">RNG</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="class" href="" title="A Spark session utility wrapper."></a>
-                        <a href="" title="A Spark session utility wrapper.">SparkSimulation</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="class" href="StreamingMap.html" title="A lazy implementation of Map, where the values for each key of type"></a>
-                        <a href="StreamingMap.html" title="A lazy implementation of Map, where the values for each key of type">StreamingMap</a>
+                        <a class="object" href="Ranges$.html" title="A collection of utility functions related to ranges."></a>
+                        <a href="Ranges$.html" title="A collection of utility functions related to ranges.">Ranges</a>
                       </li>
               </ul>
             </div>
@@ -178,9 +156,9 @@ of <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lana
             <body class="class type">
       <div id="definition">
         <div class="big-circle class">c</div>
-        <p id="owner"><a href="../../../index.html" class="extype" name="com">com</a>.<a href="../../index.html" class="extype" name="com.markblokpoel">markblokpoel</a>.<a href="../index.html" class="extype" name="com.markblokpoel.lanag">lanag</a>.<a href="index.html" class="extype" name="com.markblokpoel.lanag.util">util</a></p>
-        <h1>SparkSimulation<span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html" title="Permalink">
+        <p id="owner"><a href="../../../index.html" class="extype" name="com">com</a>.<a href="../../index.html" class="extype" name="com.markblokpoel">markblokpoel</a>.<a href="../index.html" class="extype" name="com.markblokpoel.lanag">lanag</a>.<a href="index.html" class="extype" name="com.markblokpoel.lanag.math">math</a></p>
+        <h1>Distribution<span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -193,15 +171,14 @@ of <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lana
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">SparkSimulation</span><span class="params">(<span name="local">local: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="cores">cores: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">4</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <span class="name">Distribution</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="domain">domain: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>, <span name="notNormDistribution">notNormDistribution: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A Spark session utility wrapper.</p><p>This session can be used to parallelize simulations. It requires the local machine to have
-a Spark driver installed, if used with flag <code>local = true</code>. See the Apache Spark
-website <a href="https://spark.apache.org/downloads.html" target="_blank">https://spark.apache.org/downloads.html</a> for installation instructions.
-</p></div><dl class="paramcmts block"><dt class="param">local</dt><dd class="cmt"><p>Flag to specify whether or not should run in local mode.</p></dd><dt class="param">cores</dt><dd class="cmt"><p>Number of cores to use in local mode, default is 4. Set to 0 to request maximum number of cores.</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A probability distribution over a domain of objects. If the initial distribution does not add
+up to 1.0, then it will be normalized.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>The type of the domain this distribution is defined over.</p></dd><dt class="param">domain</dt><dd class="cmt"><p>A vector of objects that makes up the domain of this distribution.</p></dd><dt class="param">notNormDistribution</dt><dd class="cmt"><p>A (possibly not normalized) distribution.</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -210,7 +187,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
                 <span class="toggle diagram-link">
                   Type Hierarchy
                 </span>
-                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 180.00 118.00" height="118pt" width="180pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 176,-114 176,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="com.markblokpoel.lanag.util.SparkSimulation (this class)" xlink:href="#inheritance-diagram"><path d="M124.167,-49C124.167,-49 39.8333,-49 39.8333,-49 35.6667,-49 31.5,-44.8333 31.5,-40.6667 31.5,-40.6667 31.5,-32.3333 31.5,-32.3333 31.5,-28.1667 35.6667,-24 39.8333,-24 39.8333,-24 124.167,-24 124.167,-24 128.333,-24 132.5,-28.1667 132.5,-32.3333 132.5,-32.3333 132.5,-40.6667 132.5,-40.6667 132.5,-44.8333 128.333,-49 124.167,-49" stroke="#418565" fill="#418565"></path><image xlink:href="../../../../lib/class_diagram.png" y="-43.5" x="42" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-33.6" x="62.7637" text-anchor="start">SparkSimulation</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="scala.Product"><path d="M61.6667,-110C61.6667,-110 8.33333,-110 8.33333,-110 4.16667,-110 0,-105.833 0,-101.667 0,-101.667 0,-93.3333 0,-93.3333 0,-89.1667 4.16667,-85 8.33333,-85 8.33333,-85 61.6667,-85 61.6667,-85 65.8333,-85 70,-89.1667 70,-93.3333 70,-93.3333 70,-101.667 70,-101.667 70,-105.833 65.8333,-110 61.6667,-110" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../../../lib/trait_diagram.png" y="-104.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-94.6" x="30.6035" text-anchor="start">Product</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="SparkSimulation is a subtype of Product"><path d="M48.8273,-79.1423C56.5311,-69.4716 65.9149,-57.6919 72.7336,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="46.731,-77.8418 44.2857,-84.8435 50.5636,-80.8949 46.731,-77.8418" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="scala.Serializable"><path d="M163.667,-110C163.667,-110 96.3333,-110 96.3333,-110 92.1667,-110 88,-105.833 88,-101.667 88,-101.667 88,-93.3333 88,-93.3333 88,-89.1667 92.1667,-85 96.3333,-85 96.3333,-85 163.667,-85 163.667,-85 167.833,-85 172,-89.1667 172,-93.3333 172,-93.3333 172,-101.667 172,-101.667 172,-105.833 167.833,-110 163.667,-110" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../../../lib/trait_diagram.png" y="-104.5" x="98" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-94.6" x="118.711" text-anchor="start">Serializable</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="SparkSimulation is a subtype of Serializable"><path d="M115.878,-79.1423C108.011,-69.4716 98.4273,-57.6919 91.4636,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="114.199,-80.9597 120.517,-84.8435 118,-77.8673 114.199,-80.9597" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 180.00 118.00" height="118pt" width="180pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 176,-114 176,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="com.markblokpoel.lanag.math.Distribution (this class)" xlink:href="#inheritance-diagram"><path d="M120.167,-49C120.167,-49 43.8333,-49 43.8333,-49 39.6667,-49 35.5,-44.8333 35.5,-40.6667 35.5,-40.6667 35.5,-32.3333 35.5,-32.3333 35.5,-28.1667 39.6667,-24 43.8333,-24 43.8333,-24 120.167,-24 120.167,-24 124.333,-24 128.5,-28.1667 128.5,-32.3333 128.5,-32.3333 128.5,-40.6667 128.5,-40.6667 128.5,-44.8333 124.333,-49 120.167,-49" stroke="#418565" fill="#418565"></path><image xlink:href="../../../../lib/class_diagram.png" y="-43.5" x="46" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-33.6" x="66.9902" text-anchor="start">Distribution[A]</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="scala.Product"><path d="M61.6667,-110C61.6667,-110 8.33333,-110 8.33333,-110 4.16667,-110 0,-105.833 0,-101.667 0,-101.667 0,-93.3333 0,-93.3333 0,-89.1667 4.16667,-85 8.33333,-85 8.33333,-85 61.6667,-85 61.6667,-85 65.8333,-85 70,-89.1667 70,-93.3333 70,-93.3333 70,-101.667 70,-101.667 70,-105.833 65.8333,-110 61.6667,-110" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../../../lib/trait_diagram.png" y="-104.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-94.6" x="30.6035" text-anchor="start">Product</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="Distribution[A] is a subtype of Product"><path d="M48.8273,-79.1423C56.5311,-69.4716 65.9149,-57.6919 72.7336,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="46.731,-77.8418 44.2857,-84.8435 50.5636,-80.8949 46.731,-77.8418" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="scala.Serializable"><path d="M163.667,-110C163.667,-110 96.3333,-110 96.3333,-110 92.1667,-110 88,-105.833 88,-101.667 88,-101.667 88,-93.3333 88,-93.3333 88,-89.1667 92.1667,-85 96.3333,-85 96.3333,-85 163.667,-85 163.667,-85 167.833,-85 172,-89.1667 172,-93.3333 172,-93.3333 172,-101.667 172,-101.667 172,-105.833 167.833,-110 163.667,-110" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../../../lib/trait_diagram.png" y="-104.5" x="98" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-94.6" x="118.711" text-anchor="start">Serializable</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="Distribution[A] is a subtype of Serializable"><path d="M115.878,-79.1423C108.011,-69.4716 98.4273,-57.6919 91.4636,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="114.199,-80.9597 120.517,-84.8435 118,-77.8673 114.199,-80.9597" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
                 <div id="diagram-controls" class="hiddenContent">
                   <button id="diagram-zoom-out" class="diagram-btn"><i class="material-icons"></i></button>
                   <button id="diagram-zoom-in" class="diagram-btn"><i class="material-icons"></i></button>
@@ -241,7 +218,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="com.markblokpoel.lanag.util.SparkSimulation"><span>SparkSimulation</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="com.markblokpoel.lanag.math.Distribution"><span>Distribution</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
                   <span class="filtertype">Implicitly<br />
@@ -266,10 +243,10 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="com.markblokpoel.lanag.util.SparkSimulation#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(local:Boolean,cores:Int):com.markblokpoel.lanag.util.SparkSimulation"></a><a id="&lt;init&gt;:SparkSimulation"></a>
+              <ol><li name="com.markblokpoel.lanag.math.Distribution#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(domain:Vector[A],notNormDistribution:Vector[BigDecimal]):com.markblokpoel.lanag.math.Distribution[A]"></a><a id="&lt;init&gt;:Distribution[A]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#&lt;init&gt;(local:Boolean,cores:Int):com.markblokpoel.lanag.util.SparkSimulation" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#&lt;init&gt;(domain:Vector[A],notNormDistribution:Vector[BigDecimal]):com.markblokpoel.lanag.math.Distribution[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -278,10 +255,10 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">SparkSimulation</span><span class="params">(<span name="local">local: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a> = <span class="symbol">false</span></span>, <span name="cores">cores: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a> = <span class="symbol">4</span></span>)</span>
+        <span class="name">Distribution</span><span class="params">(<span name="domain">domain: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>, <span name="notNormDistribution">notNormDistribution: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>)</span>
       </span>
       
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">local</dt><dd class="cmt"><p>Flag to specify whether or not should run in local mode.</p></dd><dt class="param">cores</dt><dd class="cmt"><p>Number of cores to use in local mode, default is 4. Set to 0 to request maximum number of cores.</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">domain</dt><dd class="cmt"><p>A vector of objects that makes up the domain of this distribution.</p></dd><dt class="param">notNormDistribution</dt><dd class="cmt"><p>A (possibly not normalized) distribution.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -295,7 +272,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -311,7 +288,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html###():Int" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -327,7 +304,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="+(other:String):String"></a><a id="+(String):String"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#+(other:String):String" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#+(other:String):String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -340,14 +317,14 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(SparkSimulation,B)"></a>
+      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(Distribution[A],B)"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#-&gt;[B](y:B):(A,B)" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#-&gt;[B](y:B):(A,B)" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -356,12 +333,12 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -370,7 +347,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -383,10 +360,63 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#addNotNorm" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addNotNorm(that:com.markblokpoel.lanag.math.Distribution[A]):com.markblokpoel.lanag.math.Distribution[A]"></a><a id="addNotNorm(Distribution[A]):Distribution[A]"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#addNotNorm(that:com.markblokpoel.lanag.math.Distribution[A]):com.markblokpoel.lanag.math.Distribution[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addNotNorm</span><span class="params">(<span name="that">that: <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Adds two not normalized distributions and returns the resulting distribution.</p><div class="fullcomment"><div class="comment cmt"><p>Adds two not normalized distributions and returns the resulting distribution.
+</p></div><dl class="paramcmts block"><dt class="param">that</dt><dd class="cmt"><p>The distribution to add to this one.</p></dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(elem:A):Option[BigDecimal]"></a><a id="apply(A):Option[BigDecimal]"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#apply(elem:A):Option[BigDecimal]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="elem">elem: <span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Request the probability of elem.</p><div class="fullcomment"><div class="comment cmt"><p>Request the probability of elem.
+</p></div><dl class="paramcmts block"><dt class="param">elem</dt><dd class="cmt"><p>The element in the domain for which the probability is requested.</p></dd><dt>returns</dt><dd class="cmt"><p>Probability of elem.</p></dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#argMax" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="argMax:Option[A]"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#argMax:Option[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">argMax</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns an index to the vector, pointing to the highest value in the vector.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an index to the vector, pointing to the highest value in the vector.
+If multiple maxima exist, it returns an index to one of those at random.
+If the vector distribution is empty, it returns None.
+</p></div></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -402,7 +432,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#clone():Object" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -423,26 +453,10 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.markblokpoel.lanag.util.SparkSimulation#context" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="context:org.apache.spark.SparkContext"></a><a id="context:SparkContext"></a>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#distribution" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="distribution:Vector[BigDecimal]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#context:org.apache.spark.SparkContext" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">context</span><span class="result">: <span class="extype" name="org.apache.spark.SparkContext">SparkContext</span></span>
-      </span>
-      
-      <p class="shortcomment cmt">Returns the local spark context.</p>
-    </li><li name="com.markblokpoel.lanag.util.SparkSimulation#cores" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="cores:Int"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#cores:Int" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#distribution:Vector[BigDecimal]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -451,14 +465,30 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">cores</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
+        <span class="name">distribution</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">The (normalized) probability distribution.</p>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#domain" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="domain:Vector[A]"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#domain:Vector[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">domain</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
       </span>
       
       
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((SparkSimulation)⇒Boolean,⇒Any):SparkSimulation"></a>
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((Distribution[A])⇒Boolean,⇒Any):Distribution[A]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -467,18 +497,18 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((SparkSimulation)⇒Boolean):SparkSimulation"></a>
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((Distribution[A])⇒Boolean):Distribution[A]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -487,18 +517,18 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):SparkSimulation"></a>
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):Distribution[A]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -507,18 +537,18 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):SparkSimulation"></a>
+      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):Distribution[A]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#ensuring(cond:Boolean):A" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#ensuring(cond:Boolean):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -527,18 +557,36 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#entropy" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="entropy:BigDecimal"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#entropy:BigDecimal" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">entropy</span><span class="result">: <span class="extype" name="scala.BigDecimal">BigDecimal</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns the Shannon information entropy of a distribution.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the Shannon information entropy of a distribution.</p><p>For distributions that deviate from probability assumptions (i.e., the sum of the values
+equals 1.0), Shannon information entropy is ill-defined.
+</p></div></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -554,7 +602,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#finalize():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -576,7 +624,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#formatted(fmtstr:String):String" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#formatted(fmtstr:String):String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -589,8 +637,8 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -599,7 +647,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#getClass():Class[_]" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -618,7 +666,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -631,26 +679,26 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.markblokpoel.lanag.util.SparkSimulation#local" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="local:Boolean"></a>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#length" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="length:Int"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#local:Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#length:Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">val</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">local</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span class="name">length</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Returns the number of elements in the distribution.</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -663,10 +711,26 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#notNormDistribution" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notNormDistribution:Vector[BigDecimal]"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#notNormDistribution:Vector[BigDecimal]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notNormDistribution</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#notify():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -685,7 +749,7 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#notifyAll():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -701,10 +765,10 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="com.markblokpoel.lanag.util.SparkSimulation#parallelize" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="parallelize[T](seq:Seq[T])(implicitevidence$1:scala.reflect.ClassTag[T]):org.apache.spark.rdd.RDD[T]"></a><a id="parallelize[T](Seq[T])(ClassTag[T]):RDD[T]"></a>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#prodNotNorm" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="prodNotNorm(value:BigDecimal):com.markblokpoel.lanag.math.Distribution[A]"></a><a id="prodNotNorm(BigDecimal):Distribution[A]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#parallelize[T](seq:Seq[T])(implicitevidence$1:scala.reflect.ClassTag[T]):org.apache.spark.rdd.RDD[T]" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#prodNotNorm(value:BigDecimal):com.markblokpoel.lanag.math.Distribution[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -713,16 +777,15 @@ website <a href="https://spark.apache.org/downloads.html" target="_blank">https:
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">parallelize</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="seq">seq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="com.markblokpoel.lanag.util.SparkSimulation.parallelize.T">T</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.8/scala/reflect/ClassTag.html#scala.reflect.ClassTag" class="extype" name="scala.reflect.ClassTag">ClassTag</a>[<span class="extype" name="com.markblokpoel.lanag.util.SparkSimulation.parallelize.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="com.markblokpoel.lanag.util.SparkSimulation.parallelize.T">T</span>]</span>
+        <span class="name">prodNotNorm</span><span class="params">(<span name="value">value: <span class="extype" name="scala.BigDecimal">BigDecimal</span></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Parallelizes a sequence of type T.</p><div class="fullcomment"><div class="comment cmt"><p>Parallelizes a sequence of type T.</p><p>Use this to parallelize simulations and run them in a Spark session. All transformation
-applied to the resulting <code>org.apache.spark.rdd.RDD</code> are lazily executed in parallel.
-</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>Optional type parameter.</p></dd><dt class="param">seq</dt><dd class="cmt"><p>Sequence of type T to be parallelized.</p></dd><dt>returns</dt><dd class="cmt"><p>A resilient distributed data structure <code>org.apache.spark.rdd.RDD</code>.</p></dd></dl></div>
-    </li><li name="com.markblokpoel.lanag.util.SparkSimulation#shutdown" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="shutdown():Unit"></a>
+      <p class="shortcomment cmt">Returns the distribution multiplied by a value.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the distribution multiplied by a value. Note that the normalized distribution will not change.
+</p></div><dl class="paramcmts block"><dt class="param">value</dt><dd class="cmt"><p>A number with which the distribution should be multiplied.</p></dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#sample" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sample(n:Int):List[A]"></a><a id="sample(Int):List[A]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#shutdown():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#sample(n:Int):List[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -731,32 +794,51 @@ applied to the resulting <code>org.apache.spark.rdd.RDD</code> are lazily execut
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">shutdown</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+        <span class="name">sample</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Shuts down the Spark session.</p><div class="fullcomment"><div class="comment cmt"><p>Shuts down the Spark session.</p><p>Use this to cleanly close the Spark session and ensure all jobs are finished properly.
-No further sequences can be parallelized.
-</p></div></div>
-    </li><li name="com.markblokpoel.lanag.util.SparkSimulation#spark" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="spark:org.apache.spark.sql.SparkSession"></a><a id="spark:SparkSession"></a>
+      <p class="shortcomment cmt">Draws </p><div class="fullcomment"><div class="comment cmt"><p>Draws </p><pre>n</pre><p> samples from the distribution.</p><p>n
+}}}
+</p></div><dl class="paramcmts block"><dt class="param">n</dt><dd class="cmt"><p>The number of samples to draw.</p></dd><dt>returns</dt><dd class="cmt"><p>A list of </p><pre>n</pre></dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#sample" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="sample:A"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#spark:org.apache.spark.sql.SparkSession" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#sample:A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">val</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">spark</span><span class="result">: <span class="extype" name="org.apache.spark.sql.SparkSession">SparkSession</span></span>
+        <span class="name">sample</span><span class="result">: <span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span></span>
       </span>
       
+      <p class="shortcomment cmt">Draws a sample from the distribution, proportionate to the probabilities.</p>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#softArgMax" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="softArgMax(beta:BigDecimal):Option[A]"></a><a id="softArgMax(BigDecimal):Option[A]"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#softArgMax(beta:BigDecimal):Option[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">softArgMax</span><span class="params">(<span name="beta">beta: <span class="extype" name="scala.BigDecimal">BigDecimal</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>
+      </span>
       
+      <p class="shortcomment cmt">Returns an index to the distribution according to soft argMax with parameter beta.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an index to the distribution according to soft argMax with parameter beta. If beta -&gt; Inf,
+this function is equivalent to argMax.  If the vector values is empty, it returns None.
+</p></div><dl class="paramcmts block"><dt class="param">beta</dt><dd class="cmt"><p>The beta parameter, &gt;=0. Soft argmax is ill-defined for negative beta values.</p></dd><dt>returns</dt><dd class="cmt"><p>An index pointing to the value in the distribution</p></dd></dl><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>See this Wikipedia page for a mathmatical definition of soft argmax
+     <a href="https://en.wikipedia.org/wiki/Softmax_function" target="_blank">https://en.wikipedia.org/wiki/Softmax_function</a>.</p></span></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -769,10 +851,26 @@ No further sequences can be parallelized.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.math.Distribution#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#wait():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -794,7 +892,7 @@ No further sequences can be parallelized.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -816,7 +914,7 @@ No further sequences can be parallelized.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -838,9 +936,9 @@ No further sequences can be parallelized.
               
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(SparkSimulation,B)"></a>
+      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(Distribution[A],B)"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/util/SparkSimulation.html#→[B](y:B):(A,B)" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/Distribution.html#→[B](y:B):(A,B)" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -849,12 +947,12 @@ No further sequences can be parallelized.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li>
@@ -882,19 +980,19 @@ No further sequences can be parallelized.
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>]
+                <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>]
+                <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>]
+                <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">SparkSimulation</a>]
+                <a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]]
               </h3>
             </div>
         </div>

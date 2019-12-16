@@ -237,6 +237,10 @@ of <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lana
                         <span class="separator"></span>
                         <a class="class" href="SparkSimulation.html" title="A Spark session utility wrapper."></a>
                         <a href="SparkSimulation.html" title="A Spark session utility wrapper.">SparkSimulation</a>
+                      </li><li class="current-entities indented4">
+                        <span class="separator"></span>
+                        <a class="class" href="StreamingMap.html" title="A lazy implementation of Map, where the values for each key of type"></a>
+                        <a href="StreamingMap.html" title="A lazy implementation of Map, where the values for each key of type">StreamingMap</a>
                       </li>
               </ul>
             </div>
@@ -363,6 +367,65 @@ of <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lana
 a Spark driver installed, if used with flag <code>local = true</code>. See the Apache Spark
 website <a href="https://spark.apache.org/downloads.html" target="_blank">https://spark.apache.org/downloads.html</a> for installation instructions.
 </p></div><dl class="paramcmts block"><dt class="param">local</dt><dd class="cmt"><p>Flag to specify whether or not should run in local mode.</p></dd><dt class="param">cores</dt><dd class="cmt"><p>Number of cores to use in local mode, default is 4. Set to 0 to request maximum number of cores.</p></dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.util.StreamingMap" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="StreamingMap[K,V]extendsSerializable"></a><a id="StreamingMap[K,V]:StreamingMap[K,V]"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/index.html#StreamingMap[K,V]extendsSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="A lazy implementation of Map, where the values for each key of type" href="StreamingMap.html"><span class="name">StreamingMap</span></a><span class="tparams">[<span name="K">K</span>, <span name="V">V</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">A lazy implementation of Map, where the values for each key of type </p><div class="fullcomment"><div class="comment cmt"><p>A lazy implementation of Map, where the values for each key of type </p><pre>K</pre><p> are specified by a function</p><pre>valueFunc</pre><p> of type </p><pre>K <span class="kw">=&gt;</span> V</pre><p>. This implementation is mutable. If an element </p><pre>key</pre><p> is requested and
+its value is not yet computed, <a href="StreamingMap.html" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>key
+}}}
+its value is not yet computed, <a href="StreamingMap.html" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>K =&gt; V
+}}}
+its value is not yet computed, <a href="StreamingMap.html" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc
+}}}
+its value is not yet computed, <a href="StreamingMap.html" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>K
+}}}</p><pre>valueFunc</pre><p> of type </p><pre>K <span class="kw">=&gt;</span> V</pre><p>. This implementation is mutable. If an element </p><pre>key</pre><p> is requested and
+its value is not yet computed, <a href="StreamingMap.html" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>key
+}}}
+its value is not yet computed, <a href="StreamingMap.html" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>K =&gt; V
+}}}
+its value is not yet computed, <a href="StreamingMap.html" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc
+}}}
+its value is not yet computed, <a href="StreamingMap.html" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.
+</p></div><dl class="paramcmts block"><dt class="tparam">K</dt><dd class="cmt"><p>The parameter type of the keys.</p></dd><dt class="tparam">V</dt><dd class="cmt"><p>The parameter type of the values.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@SerialVersionUID</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li></ol>
             </div>
 

@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>Language Agents  - com.markblokpoel.lanag.core.ContentSignalPrototype</title>
-          <meta name="description" content="Language Agents - com.markblokpoel.lanag.core.ContentSignalPrototype" />
-          <meta name="keywords" content="Language Agents com.markblokpoel.lanag.core.ContentSignalPrototype" />
+          <title>Language Agents  - com.markblokpoel.lanag.util.StreamingMap</title>
+          <meta name="description" content="Language Agents - com.markblokpoel.lanag.util.StreamingMap" />
+          <meta name="keywords" content="Language Agents com.markblokpoel.lanag.util.StreamingMap" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -119,10 +119,10 @@ Github repository at <a href="https://github.com/markblokpoel/lanag-core" target
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="com.markblokpoel">markblokpoel</a></dd></dl></div>
-    </li><li name="com.markblokpoel.lanag.core" visbl="pub" class="indented4 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="core"></a><a id="core:core"></a>
+    </li><li name="com.markblokpoel.lanag.util" visbl="pub" class="indented4 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="util"></a><a id="util:util"></a>
       <span class="permalink">
-      <a href="../../../com/markblokpoel/lanag/index.html#core" title="Permalink">
+      <a href="../../../com/markblokpoel/lanag/index.html#util" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -131,76 +131,45 @@ Github repository at <a href="https://github.com/markblokpoel/lanag-core" target
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a title="Provides classes, objects and traits that specify the com.markblokpoel.lanag.core architecture of the simulation framework." href="index.html"><span class="name">core</span></a>
+        <a title="Provides classes and objects for dealing with the simulation infrastructure." href="index.html"><span class="name">util</span></a>
       </span>
       
-      <p class="shortcomment cmt">Provides classes, objects and traits that specify the com.markblokpoel.lanag.core architecture of the simulation framework.</p><div class="fullcomment"><div class="comment cmt"><p>Provides classes, objects and traits that specify the com.markblokpoel.lanag.core architecture of the simulation framework.</p><h4>Overview</h4><p>Most of the classes, objects and traits in this packages cannot be used on their own. Instead, they specify
-what minimally should be implemented in any Lanag agent-based simulation.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.markblokpoel.lanag">lanag</a></dd><dt>See also</dt><dd><span class="cmt"><p>For an example implementation, see the source code of project ambiguity helps.</p></span></dd></dl></div>
+      <p class="shortcomment cmt">Provides classes and objects for dealing with the simulation infrastructure.</p><div class="fullcomment"><div class="comment cmt"><p>Provides classes and objects for dealing with the simulation infrastructure.</p><h4>Overview</h4><h5>Spark simulations</h5><p>Use <a href="SparkSimulation.html" class="extype" name="com.markblokpoel.lanag.util.SparkSimulation">com.markblokpoel.lanag.util.SparkSimulation</a> to create an instance of Spark
+running locally on your machine:</p><pre><span class="kw">import</span> com.markblokpoel.lanag.com.markblokpoel.lanag.coreg.util.LocalSparkSimulation
+<span class="kw">import</span> LocalSparkSimulation.spark.implicits._
+
+<span class="kw">val</span> sequenceToBeParallelized = <span class="std">Seq</span>(...)
+<span class="kw">val</span> rdd = LocalSparkSimulation.parallelize(sequenceToBeParallelized)</pre><p>You can now RDD functions like <code>org.apache.spark.rdd.RDD.flatMap()</code> and
+<code>org.apache.spark.rdd.RDD.map()</code> to apply transformations to the sequence.</p><pre>rdd.map(a <span class="kw">=&gt;</span> a +<span class="num">1</span>)</pre><p>These will be executed lazily and in parallel. Until you write the results to file, or otherwise
+collect them, nothing will be executed. For a tutorial on Spark see the Apache Spark website
+<a href="https://spark.apache.org/docs/latest/quick-start.html" target="_blank">https://spark.apache.org/docs/latest/quick-start.html</a>.</p><h5>Global number generators</h5><p>The object <a href="InteractionIdentifier$.html" class="extype" name="com.markblokpoel.lanag.util.InteractionIdentifier">com.markblokpoel.lanag.util.InteractionIdentifier</a> is used in <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lanag.core.Interaction">com.markblokpoel.lanag.core.Interaction</a>
+to identify pairs of agents.</p><p>The object <a href="RNG$.html" class="extype" name="com.markblokpoel.lanag.util.RNG">com.markblokpoel.lanag.util.RNG</a> specifies a global random number generator. Implementations
+of <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lanag.core.Interaction">com.markblokpoel.lanag.core.Interaction</a> that use this object exclusive will be repeatable for specific RNG seeds.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.markblokpoel.lanag">lanag</a></dd></dl></div>
     </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="class" href="Agent.html" title="Defines the Agent class architecture."></a>
-                        <a href="Agent.html" title="Defines the Agent class architecture.">Agent</a>
+                        <a class="class" href="ConfigWrapper.html" title=""></a>
+                        <a href="ConfigWrapper.html" title="">ConfigWrapper</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="class" href="AgentPair.html" title="Data structure for storing pairs of agents, their type and their origin."></a>
-                        <a href="AgentPair.html" title="Data structure for storing pairs of agents, their type and their origin.">AgentPair</a>
-                      </li><li class="current-entities indented4">
-                        <a class="object" href="ContentSignal$.html" title="Helper object to create instance of ContentSignal."></a>
-                        <a class="class" href="ContentSignal.html" title="A basic content signal."></a>
-                        <a href="ContentSignal.html" title="A basic content signal.">ContentSignal</a>
+                        <a class="object" href="DefaultMain$.html" title=""></a>
+                        <a href="DefaultMain$.html" title="">DefaultMain</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="class" href="" title="The prototype signal that has some content of type T."></a>
-                        <a href="" title="The prototype signal that has some content of type T.">ContentSignalPrototype</a>
+                        <a class="object" href="InteractionIdentifier$.html" title="Global parameter for generating unique identifier numbers for interactions."></a>
+                        <a href="InteractionIdentifier$.html" title="Global parameter for generating unique identifier numbers for interactions.">InteractionIdentifier</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="trait" href="Data.html" title="A prototype type for storing simulation data in case classes."></a>
-                        <a href="Data.html" title="A prototype type for storing simulation data in case classes.">Data</a>
+                        <a class="object" href="RNG$.html" title="A global Random Number Generator."></a>
+                        <a href="RNG$.html" title="A global Random Number Generator.">RNG</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="trait" href="Intention.html" title="The prototype intention type."></a>
-                        <a href="Intention.html" title="The prototype intention type.">Intention</a>
+                        <a class="class" href="SparkSimulation.html" title="A Spark session utility wrapper."></a>
+                        <a href="SparkSimulation.html" title="A Spark session utility wrapper.">SparkSimulation</a>
                       </li><li class="current-entities indented4">
                         <span class="separator"></span>
-                        <a class="class" href="IntentionPrototype.html" title="The prototype intention that has some content of type T."></a>
-                        <a href="IntentionPrototype.html" title="The prototype intention that has some content of type T.">IntentionPrototype</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="class" href="Interaction.html" title="Defines agent interactions."></a>
-                        <a href="Interaction.html" title="Defines agent interactions.">Interaction</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Listener.html" title="A special case of Agent where it is in listener mode."></a>
-                        <a href="Listener.html" title="A special case of Agent where it is in listener mode.">Listener</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="class" href="NoData.html" title="Use this class in your agent simulation implementation when you have no data to collect."></a>
-                        <a href="NoData.html" title="Use this class in your agent simulation implementation when you have no data to collect.">NoData</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="class" href="PairGenerator.html" title="Defines a pair generator."></a>
-                        <a href="PairGenerator.html" title="Defines a pair generator.">PairGenerator</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Parameters.html" title="Prototype type for parameters."></a>
-                        <a href="Parameters.html" title="Prototype type for parameters.">Parameters</a>
-                      </li><li class="current-entities indented4">
-                        <a class="object" href="ReferentialIntention$.html" title="Helper object to create instance of ReferentialIntention."></a>
-                        <a class="class" href="ReferentialIntention.html" title="A basic referential intention."></a>
-                        <a href="ReferentialIntention.html" title="A basic referential intention.">ReferentialIntention</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Repair.html" title="Signals that implement this trait consist of repair information."></a>
-                        <a href="Repair.html" title="Signals that implement this trait consist of repair information.">Repair</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Signal.html" title="The prototype signal type."></a>
-                        <a href="Signal.html" title="The prototype signal type.">Signal</a>
-                      </li><li class="current-entities indented4">
-                        <span class="separator"></span>
-                        <a class="trait" href="Speaker.html" title="A special case of Agent where it is in speaker mode."></a>
-                        <a href="Speaker.html" title="A special case of Agent where it is in speaker mode.">Speaker</a>
+                        <a class="class" href="" title="A lazy implementation of Map, where the values for each key of type"></a>
+                        <a href="" title="A lazy implementation of Map, where the values for each key of type">StreamingMap</a>
                       </li>
               </ul>
             </div>
@@ -209,9 +178,9 @@ what minimally should be implemented in any Lanag agent-based simulation.
             <body class="class type">
       <div id="definition">
         <div class="big-circle class">c</div>
-        <p id="owner"><a href="../../../index.html" class="extype" name="com">com</a>.<a href="../../index.html" class="extype" name="com.markblokpoel">markblokpoel</a>.<a href="../index.html" class="extype" name="com.markblokpoel.lanag">lanag</a>.<a href="index.html" class="extype" name="com.markblokpoel.lanag.core">core</a></p>
-        <h1>ContentSignalPrototype<span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html" title="Permalink">
+        <p id="owner"><a href="../../../index.html" class="extype" name="com">com</a>.<a href="../../index.html" class="extype" name="com.markblokpoel">markblokpoel</a>.<a href="../index.html" class="extype" name="com.markblokpoel.lanag">lanag</a>.<a href="index.html" class="extype" name="com.markblokpoel.lanag.util">util</a></p>
+        <h1>StreamingMap<span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -220,34 +189,68 @@ what minimally should be implemented in any Lanag agent-based simulation.
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier">abstract </span>
+        <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">ContentSignalPrototype</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Signal.html" class="extype" name="com.markblokpoel.lanag.core.Signal">Signal</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <span class="name">StreamingMap</span><span class="tparams">[<span name="K">K</span>, <span name="V">V</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>The prototype signal that has some content of type T.
-</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>The type of the content.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A lazy implementation of Map, where the values for each key of type </p><pre>K</pre><p> are specified by a function</p><pre>valueFunc</pre><p> of type </p><pre>K <span class="kw">=&gt;</span> V</pre><p>. This implementation is mutable. If an element </p><pre>key</pre><p> is requested and
+its value is not yet computed, <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>key
+}}}
+its value is not yet computed, <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>K =&gt; V
+}}}
+its value is not yet computed, <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc
+}}}
+its value is not yet computed, <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>K
+}}}</p><pre>valueFunc</pre><p> of type </p><pre>K <span class="kw">=&gt;</span> V</pre><p>. This implementation is mutable. If an element </p><pre>key</pre><p> is requested and
+its value is not yet computed, <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>key
+}}}
+its value is not yet computed, <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>K =&gt; V
+}}}
+its value is not yet computed, <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc
+}}}
+its value is not yet computed, <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a> computes </p><pre>valueFunc(key)</pre><p> and stores the result. If the
+value has already been computed, then its simply returns the stored value.</p><p>valueFunc(key)
+}}}
+value has already been computed, then its simply returns the stored value.
+</p></div><dl class="paramcmts block"><dt class="tparam">K</dt><dd class="cmt"><p>The parameter type of the keys.</p></dd><dt class="tparam">V</dt><dd class="cmt"><p>The parameter type of the values.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@SerialVersionUID</span><span class="args">()</span>
               
         </dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="Signal.html" class="extype" name="com.markblokpoel.lanag.core.Signal">Signal</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
-        </div><div class="toggleContainer block">
-            <span class="toggle">
-              Known Subclasses
-            </span>
-            <div class="subClasses hiddenContent"><a href="ContentSignal.html" class="extype" name="com.markblokpoel.lanag.core.ContentSignal">ContentSignal</a></div>
-          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
                 <span class="toggle diagram-link">
                   Type Hierarchy
                 </span>
-                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 194.00 155.00" height="155pt" width="194pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 151)" class="graph" id="graph0"><polygon points="-4,4 -4,-151 190,-151 190,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="com.markblokpoel.lanag.core.ContentSignalPrototype (this class)" xlink:href="#inheritance-diagram"><path d="M153.167,-86C153.167,-86 32.8333,-86 32.8333,-86 28.6667,-86 24.5,-81.8333 24.5,-77.6667 24.5,-77.6667 24.5,-69.3333 24.5,-69.3333 24.5,-65.1667 28.6667,-61 32.8333,-61 32.8333,-61 153.167,-61 153.167,-61 157.333,-61 161.5,-65.1667 161.5,-69.3333 161.5,-69.3333 161.5,-77.6667 161.5,-77.6667 161.5,-81.8333 157.333,-86 153.167,-86" stroke="#418565" fill="#418565"></path><image xlink:href="../../../../lib/class_diagram.png" y="-80.5" x="35" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-70.6" x="55.9727" text-anchor="start">ContentSignalPrototype[T]</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="com.markblokpoel.lanag.core.ContentSignal" xlink:href="ContentSignal.html#inheritance-diagram"><path d="M131.167,-25C131.167,-25 54.8333,-25 54.8333,-25 50.6667,-25 46.5,-20.8333 46.5,-16.6667 46.5,-16.6667 46.5,-8.33333 46.5,-8.33333 46.5,-4.16667 50.6667,-0 54.8333,-0 54.8333,-0 131.167,-0 131.167,-0 135.333,-0 139.5,-4.16667 139.5,-8.33333 139.5,-8.33333 139.5,-16.6667 139.5,-16.6667 139.5,-20.8333 135.333,-25 131.167,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../../../lib/class_diagram.png" y="-19.5" x="57" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-9.6" x="77.7598" text-anchor="start">ContentSignal</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="ContentSignal is a subtype of ContentSignalPrototype[T]"><path d="M93,-53.7603C93,-44.3675 93,-33.2882 93,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="90.5501,-53.8435 93,-60.8435 95.4501,-53.8435 90.5501,-53.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="com.markblokpoel.lanag.core.Signal" xlink:href="Signal.html#inheritance-diagram"><path d="M71.1667,-147C71.1667,-147 22.8333,-147 22.8333,-147 18.6667,-147 14.5,-142.833 14.5,-138.667 14.5,-138.667 14.5,-130.333 14.5,-130.333 14.5,-126.167 18.6667,-122 22.8333,-122 22.8333,-122 71.1667,-122 71.1667,-122 75.3333,-122 79.5,-126.167 79.5,-130.333 79.5,-130.333 79.5,-138.667 79.5,-138.667 79.5,-142.833 75.3333,-147 71.1667,-147" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../../../lib/trait_diagram.png" y="-141.5" x="25" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-131.6" x="45.7695" text-anchor="start">Signal</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="ContentSignalPrototype[T] is a subtype of Signal"><path d="M60.5331,-116.142C68.073,-106.472 77.2571,-94.6919 83.9308,-86.1323" stroke="#d4d4d4" fill="none"></path><polygon points="58.4601,-114.817 56.0881,-121.843 62.3244,-117.829 58.4601,-114.817" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="scala.Serializable"><path d="M173.667,-147C173.667,-147 106.333,-147 106.333,-147 102.167,-147 98,-142.833 98,-138.667 98,-138.667 98,-130.333 98,-130.333 98,-126.167 102.167,-122 106.333,-122 106.333,-122 173.667,-122 173.667,-122 177.833,-122 182,-126.167 182,-130.333 182,-130.333 182,-138.667 182,-138.667 182,-142.833 177.833,-147 173.667,-147" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../../../lib/trait_diagram.png" y="-141.5" x="108" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-131.6" x="128.711" text-anchor="start">Serializable</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph1_3_0"><g id="a_inheritance|graph1_3_0"><a xlink:title="ContentSignalPrototype[T] is a subtype of Serializable"><path d="M126.173,-116.142C118.469,-106.472 109.085,-94.6919 102.266,-86.1323" stroke="#d4d4d4" fill="none"></path><polygon points="124.436,-117.895 130.714,-121.843 128.269,-114.842 124.436,-117.895" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 170.00 118.00" height="118pt" width="170pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 166,-114 166,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="com.markblokpoel.lanag.util.StreamingMap (this class)" xlink:href="#inheritance-diagram"><path d="M129.667,-49C129.667,-49 32.3333,-49 32.3333,-49 28.1667,-49 24,-44.8333 24,-40.6667 24,-40.6667 24,-32.3333 24,-32.3333 24,-28.1667 28.1667,-24 32.3333,-24 32.3333,-24 129.667,-24 129.667,-24 133.833,-24 138,-28.1667 138,-32.3333 138,-32.3333 138,-40.6667 138,-40.6667 138,-44.8333 133.833,-49 129.667,-49" stroke="#418565" fill="#418565"></path><image xlink:href="../../../../lib/class_diagram.png" y="-43.5" x="34" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-33.6" x="54.5957" text-anchor="start">StreamingMap[K, V]</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="scala.Serializable"><path d="M114.667,-110C114.667,-110 47.3333,-110 47.3333,-110 43.1667,-110 39,-105.833 39,-101.667 39,-101.667 39,-93.3333 39,-93.3333 39,-89.1667 43.1667,-85 47.3333,-85 47.3333,-85 114.667,-85 114.667,-85 118.833,-85 123,-89.1667 123,-93.3333 123,-93.3333 123,-101.667 123,-101.667 123,-105.833 118.833,-110 114.667,-110" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../../../lib/trait_diagram.png" y="-104.5" x="49" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-94.6" x="69.7109" text-anchor="start">Serializable</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="StreamingMap[K, V] is a subtype of Serializable"><path d="M81,-77.7603C81,-68.3675 81,-57.2882 81,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="78.5501,-77.8435 81,-84.8435 83.4501,-77.8435 78.5501,-77.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
                 <div id="diagram-controls" class="hiddenContent">
                   <button id="diagram-zoom-out" class="diagram-btn"><i class="material-icons"></i></button>
                   <button id="diagram-zoom-in" class="diagram-btn"><i class="material-icons"></i></button>
@@ -278,7 +281,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="com.markblokpoel.lanag.core.ContentSignalPrototype"><span>ContentSignalPrototype</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="com.markblokpoel.lanag.core.Signal"><span>Signal</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="com.markblokpoel.lanag.util.StreamingMap"><span>StreamingMap</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
                   <span class="filtertype">Implicitly<br />
@@ -303,10 +306,10 @@ what minimally should be implemented in any Lanag agent-based simulation.
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="com.markblokpoel.lanag.core.ContentSignalPrototype#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;():com.markblokpoel.lanag.core.ContentSignalPrototype[T]"></a><a id="&lt;init&gt;:ContentSignalPrototype[T]"></a>
+              <ol><li name="com.markblokpoel.lanag.util.StreamingMap#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(keys:IndexedSeq[K],valueFunc:K=&gt;V):com.markblokpoel.lanag.util.StreamingMap[K,V]"></a><a id="&lt;init&gt;:StreamingMap[K,V]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#&lt;init&gt;():com.markblokpoel.lanag.core.ContentSignalPrototype[T]" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#&lt;init&gt;(keys:IndexedSeq[K],valueFunc:K=&gt;V):com.markblokpoel.lanag.util.StreamingMap[K,V]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -315,59 +318,25 @@ what minimally should be implemented in any Lanag agent-based simulation.
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">ContentSignalPrototype</span><span class="params">()</span>
+        <span class="name">StreamingMap</span><span class="params">(<span name="keys">keys: <span class="extype" name="scala.IndexedSeq">IndexedSeq</span>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>]</span>, <span name="valueFunc">valueFunc: (<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>) ⇒ <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span></span>)</span>
       </span>
       
-      <p class="shortcomment cmt"></p>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">keys</dt><dd class="cmt"><p>A list of keys.</p></dd><dt class="param">valueFunc</dt><dd class="cmt"><p>The function that describes the value for each key. This is assumed to be complete for all keys
+                 in </p><pre>keys</pre></dd></dl></div>
     </li></ol>
             </div>
 
         
 
-        <div class="values members">
-              <h3>Abstract Value Members</h3>
-              <ol><li name="com.markblokpoel.lanag.core.ContentSignalPrototype#content" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="content:T"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#content:T" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">content</span><span class="result">: <span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span></span>
-      </span>
-      
-      <p class="shortcomment cmt">Access the content.</p>
-    </li><li name="com.markblokpoel.lanag.core.ContentSignalPrototype#isDefined" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="isDefined:Boolean"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#isDefined:Boolean" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">isDefined</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Returns whether or not the signal is defined.</p>
-    </li></ol>
-            </div>
+        
 
         <div class="values members">
-              <h3>Concrete Value Members</h3>
+              <h3>Value Members</h3>
               <ol>
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -383,7 +352,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html###():Int" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -399,7 +368,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="+(other:String):String"></a><a id="+(String):String"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#+(other:String):String" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#+(other:String):String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -412,14 +381,14 @@ what minimally should be implemented in any Lanag agent-based simulation.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(ContentSignalPrototype[T],B)"></a>
+      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(StreamingMap[K,V],B)"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#-&gt;[B](y:B):(A,B)" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#-&gt;[B](y:B):(A,B)" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -428,12 +397,12 @@ what minimally should be implemented in any Lanag agent-based simulation.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -442,7 +411,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -455,10 +424,27 @@ what minimally should be implemented in any Lanag agent-based simulation.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.util.StreamingMap#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(key:K):V"></a><a id="apply(K):V"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#apply(key:K):V" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="key">key: <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span></span>)</span><span class="result">: <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns the value associated with the key.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the value associated with the key.
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>The key entry for which the value should be returned.</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -474,7 +460,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#clone():Object" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -496,9 +482,9 @@ what minimally should be implemented in any Lanag agent-based simulation.
               
         </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((ContentSignalPrototype[T])⇒Boolean,⇒Any):ContentSignalPrototype[T]"></a>
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((StreamingMap[K,V])⇒Boolean,⇒Any):StreamingMap[K,V]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -507,18 +493,18 @@ what minimally should be implemented in any Lanag agent-based simulation.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((ContentSignalPrototype[T])⇒Boolean):ContentSignalPrototype[T]"></a>
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((StreamingMap[K,V])⇒Boolean):StreamingMap[K,V]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -527,18 +513,18 @@ what minimally should be implemented in any Lanag agent-based simulation.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):ContentSignalPrototype[T]"></a>
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):StreamingMap[K,V]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -547,18 +533,18 @@ what minimally should be implemented in any Lanag agent-based simulation.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):ContentSignalPrototype[T]"></a>
+      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):StreamingMap[K,V]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#ensuring(cond:Boolean):A" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#ensuring(cond:Boolean):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -567,18 +553,18 @@ what minimally should be implemented in any Lanag agent-based simulation.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]</span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -594,7 +580,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#equals(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -610,7 +596,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#finalize():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -632,7 +618,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#formatted(fmtstr:String):String" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#formatted(fmtstr:String):String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -645,8 +631,8 @@ what minimally should be implemented in any Lanag agent-based simulation.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -655,7 +641,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#getClass():Class[_]" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -674,7 +660,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#hashCode():Int" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#hashCode():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -693,7 +679,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -706,10 +692,26 @@ what minimally should be implemented in any Lanag agent-based simulation.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.markblokpoel.lanag.util.StreamingMap#keys" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="keys:IndexedSeq[K]"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#keys:IndexedSeq[K]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">keys</span><span class="result">: <span class="extype" name="scala.IndexedSeq">IndexedSeq</span>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>]</span>
+      </span>
+      
+      
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -725,7 +727,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#notify():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -744,7 +746,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#notifyAll():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -763,7 +765,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -779,7 +781,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#toString():String" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#toString():String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -795,7 +797,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#wait():Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -817,7 +819,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -839,7 +841,7 @@ what minimally should be implemented in any Lanag agent-based simulation.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -861,9 +863,9 @@ what minimally should be implemented in any Lanag agent-based simulation.
               
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(ContentSignalPrototype[T],B)"></a>
+      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(StreamingMap[K,V],B)"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/ContentSignalPrototype.html#→[B](y:B):(A,B)" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/util/StreamingMap.html#→[B](y:B):(A,B)" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -872,12 +874,12 @@ what minimally should be implemented in any Lanag agent-based simulation.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li>
@@ -894,8 +896,6 @@ what minimally should be implemented in any Lanag agent-based simulation.
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
-            </div><div class="parent" name="com.markblokpoel.lanag.core.Signal">
-              <h3>Inherited from <a href="Signal.html" class="extype" name="com.markblokpoel.lanag.core.Signal">Signal</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
@@ -903,19 +903,19 @@ what minimally should be implemented in any Lanag agent-based simulation.
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]]
+                <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]]
+                <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]]
+                <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype">ContentSignalPrototype</a>[<span class="extype" name="com.markblokpoel.lanag.core.ContentSignalPrototype.T">T</span>]]
+                <a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.markblokpoel.lanag.util.StreamingMap">StreamingMap</a>[<span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.K">K</span>, <span class="extype" name="com.markblokpoel.lanag.util.StreamingMap.V">V</span>]]
               </h3>
             </div>
         </div>

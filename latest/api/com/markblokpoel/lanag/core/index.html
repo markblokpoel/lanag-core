@@ -429,9 +429,9 @@ of <a href="Intention.html" class="extype" name="com.markblokpoel.lanag.core.Int
 for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblokpoel.lanag.rsa.Lexicon">com.markblokpoel.lanag.rsa.Lexicon</a>.
 </p></div><dl class="paramcmts block"><dt class="param">content</dt><dd class="cmt"><p>The optional signal index.</p></dd></dl></div>
     </li><li name="com.markblokpoel.lanag.core.ContentSignalPrototype" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="ContentSignalPrototype[T]extendsSignal"></a><a id="ContentSignalPrototype[T]:ContentSignalPrototype[T]"></a>
+      <a id="ContentSignalPrototype[T]extendsSignalwithSerializable"></a><a id="ContentSignalPrototype[T]:ContentSignalPrototype[T]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/index.html#ContentSignalPrototype[T]extendsSignal" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/index.html#ContentSignalPrototype[T]extendsSignalwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -440,11 +440,14 @@ for example, in a <a href="../rsa/Lexicon.html" class="extype" name="com.markblo
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="The prototype signal that has some content of type T." href="ContentSignalPrototype.html"><span class="name">ContentSignalPrototype</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Signal.html" class="extype" name="com.markblokpoel.lanag.core.Signal">Signal</a></span>
+        <a title="The prototype signal that has some content of type T." href="ContentSignalPrototype.html"><span class="name">ContentSignalPrototype</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Signal.html" class="extype" name="com.markblokpoel.lanag.core.Signal">Signal</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">The prototype signal that has some content of type T.</p><div class="fullcomment"><div class="comment cmt"><p>The prototype signal that has some content of type T.
-</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>The type of the content.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>The type of the content.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@SerialVersionUID</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="com.markblokpoel.lanag.core.Data" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="DataextendsAnyRef"></a><a id="Data:Data"></a>
       <span class="permalink">
@@ -480,9 +483,9 @@ All data case classes are derivatives of this trait.
       
       <p class="shortcomment cmt">The prototype intention type.</p><div class="fullcomment"><div class="comment cmt"><p>The prototype intention type. All intention types are derivatives of this trait.</p></div></div>
     </li><li name="com.markblokpoel.lanag.core.IntentionPrototype" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="IntentionPrototype[T]extendsIntention"></a><a id="IntentionPrototype[T]:IntentionPrototype[T]"></a>
+      <a id="IntentionPrototype[T]extendsIntentionwithSerializable"></a><a id="IntentionPrototype[T]:IntentionPrototype[T]"></a>
       <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/core/index.html#IntentionPrototype[T]extendsIntention" title="Permalink">
+      <a href="../../../../com/markblokpoel/lanag/core/index.html#IntentionPrototype[T]extendsIntentionwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -491,11 +494,14 @@ All data case classes are derivatives of this trait.
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="The prototype intention that has some content of type T." href="IntentionPrototype.html"><span class="name">IntentionPrototype</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Intention.html" class="extype" name="com.markblokpoel.lanag.core.Intention">Intention</a></span>
+        <a title="The prototype intention that has some content of type T." href="IntentionPrototype.html"><span class="name">IntentionPrototype</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Intention.html" class="extype" name="com.markblokpoel.lanag.core.Intention">Intention</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">The prototype intention that has some content of type T.</p><div class="fullcomment"><div class="comment cmt"><p>The prototype intention that has some content of type T.
-</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>The type of the content.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>The type of the content.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@SerialVersionUID</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="com.markblokpoel.lanag.core.Interaction" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="Interaction[I&lt;:com.markblokpoel.lanag.core.Intention,S&lt;:com.markblokpoel.lanag.core.Signal,A&lt;:com.markblokpoel.lanag.core.Agent[I,S]]extendsSerializable"></a><a id="Interaction[I&lt;:Intention,S&lt;:Signal,A&lt;:Agent[I,S]]:Interaction[I,S,A]"></a>
       <span class="permalink">

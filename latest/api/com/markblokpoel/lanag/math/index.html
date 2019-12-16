@@ -173,6 +173,10 @@ what minimally should be implemented in any Lanag agent-based simulation.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.markblokpoel.lanag">lanag</a></dd></dl></div>
     </li><li class="current-entities indented4">
                         <span class="separator"></span>
+                        <a class="class" href="Distribution.html" title="A probability distribution over a domain of objects."></a>
+                        <a href="Distribution.html" title="A probability distribution over a domain of objects.">Distribution</a>
+                      </li><li class="current-entities indented4">
+                        <span class="separator"></span>
                         <a class="object" href="Probability$.html" title="A collection of utility functions related to probability theory."></a>
                         <a href="Probability$.html" title="A collection of utility functions related to probability theory.">Probability</a>
                       </li><li class="current-entities indented4">
@@ -304,30 +308,35 @@ of <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lana
         <div id="allMembers">
         
 
-        
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.markblokpoel.lanag.math.Distribution" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Distribution[A]extendsProductwithSerializable"></a><a id="Distribution[A]:Distribution[A]"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/index.html#Distribution[A]extendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="A probability distribution over a domain of objects." href="Distribution.html"><span class="name">Distribution</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="domain">domain: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="com.markblokpoel.lanag.math.Distribution.A">A</span>]</span>, <span name="notNormDistribution">notNormDistribution: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.8/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.8/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">A probability distribution over a domain of objects.</p><div class="fullcomment"><div class="comment cmt"><p>A probability distribution over a domain of objects. If the initial distribution does not add
+up to 1.0, then it will be normalized.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>The type of the domain this distribution is defined over.</p></dd><dt class="param">domain</dt><dd class="cmt"><p>A vector of objects that makes up the domain of this distribution.</p></dd><dt class="param">notNormDistribution</dt><dd class="cmt"><p>A (possibly not normalized) distribution.</p></dd></dl></div>
+    </li></ol>
+            </div>
 
         
 
         <div class="values members">
               <h3>Value Members</h3>
               <ol>
-                <li name="com.markblokpoel.lanag.math.Probability" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Probability"></a><a id="Probability:Probability"></a>
-      <span class="permalink">
-      <a href="../../../../com/markblokpoel/lanag/math/index.html#Probability" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="A collection of utility functions related to probability theory." href="Probability$.html"><span class="name">Probability</span></a>
-      </span>
-      
-      <p class="shortcomment cmt">A collection of utility functions related to probability theory.</p>
-    </li><li name="com.markblokpoel.lanag.math.Ranges" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+                <li name="com.markblokpoel.lanag.math.Ranges" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Ranges"></a><a id="Ranges:Ranges"></a>
       <span class="permalink">
       <a href="../../../../com/markblokpoel/lanag/math/index.html#Ranges" title="Permalink">
@@ -349,7 +358,27 @@ of <a href="../core/Interaction.html" class="extype" name="com.markblokpoel.lana
 
         
 
-        
+        <div class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="com.markblokpoel.lanag.math.Probability" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Probability"></a><a id="Probability:Probability"></a>
+      <span class="permalink">
+      <a href="../../../../com/markblokpoel/lanag/math/index.html#Probability" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="A collection of utility functions related to probability theory." href="Probability$.html"><span class="name deprecated" title="Deprecated: Remains for backwards compatibility. Use Distribution instead which has higher precision.">Probability</span></a>
+      </span>
+      
+      <p class="shortcomment cmt">A collection of utility functions related to probability theory.</p><div class="fullcomment"><div class="comment cmt"><p>A collection of utility functions related to probability theory.
+</p></div><dl class="attributes block"> <dt>Deprecated</dt><dd class="cmt"><p>Remains for backwards compatibility. Use <a href="Distribution.html" class="extype" name="com.markblokpoel.lanag.math.Distribution">Distribution</a> instead which has higher precision.</p></dd></dl></div>
+    </li></ol>
+            </div>
         </div>
 
         <div id="inheritedMembers">
