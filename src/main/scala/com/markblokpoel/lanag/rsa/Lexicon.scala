@@ -35,6 +35,12 @@ case class Lexicon(vocabularySize: Int,
     extends Serializable {
   require(data.length == vocabularySize * contextSize)
 
+  override def equals(that: Any): Boolean =
+    if (canEqual(that)) {
+      val th = that.asInstanceOf[Lexicon]
+      th.contextSize == contextSize && th.vocabularySize == vocabularySize && th.data == data
+    } else false
+
   /** Returns the relation value for signal <code>i</code> and referent <code>j</code>.
     *
     * @param i Index of the signal.
@@ -383,7 +389,7 @@ case class Lexicon(vocabularySize: Int,
 }
 
 /** Companion object to [[Lexicon]] containing alternative constructors and generation functions. */
-object Lexicon {
+case object Lexicon {
 
   /** Constructor for [[Lexicon]].
     *
